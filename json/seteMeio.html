@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sete e Meio</title>
+</head>
+<body>
+
+    <button onclick="pedir()">Pedir outra Carta</button>
+    <button onclick="passar()">Passar Vez</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+var cartasJogo = [
+
+{nome: 'Ás', nipe:'Copas', pontuação: 1},
+{nome: 'Ás', nipe:'Espadas', pontuação: 1},
+{nome: 'Ás', nipe:'Ouros', pontuação: 1},
+{nome: 'Ás', nipe:'Paus', pontuação: 1},
+
+{nome: '2', nipe:'Paus', pontuação: 2},
+{nome: '2', nipe:'Espadas', pontuação: 2},
+{nome: '2', nipe:'Ouros', pontuação: 2},
+{nome: '2', nipe:'Paus', pontuação: 2},
+
+{nome: '3', nipe:'Paus', pontuação: 3},
+{nome: '3', nipe:'Espadas', pontuação: 3},
+{nome: '3', nipe:'Ouros', pontuação: 3},
+{nome: '3', nipe:'Paus', pontuação: 3},
+
+{nome: '4', nipe:'Paus', pontuação: 4},
+{nome: '4', nipe:'Espadas', pontuação: 4},
+{nome: '4', nipe:'Ouros', pontuação: 4},
+{nome: '4', nipe:'Paus', pontuação: 4},
+
+{nome: '5', nipe:'Paus', pontuação: 5},
+{nome: '5', nipe:'Espadas', pontuação: 5},
+{nome: '5', nipe:'Ouros', pontuação: 5},
+{nome: '5', nipe:'Paus', pontuação: 5},
+
+{nome: '6', nipe:'Paus', pontuação: 6},
+{nome: '6', nipe:'Espadas', pontuação: 6},
+{nome: '6', nipe:'Ouros', pontuação: 6},
+{nome: '6', nipe:'Paus', pontuação: 6},
+
+{nome: '7', nipe:'Paus', pontuação: 7},
+{nome: '7', nipe:'Espadas', pontuação: 7},
+{nome: '7', nipe:'Ouros', pontuação: 7},
+{nome: '7', nipe:'Paus', pontuação: 7},
+
+{nome: 'Valete', nipe:'Copas', pontuação: 0.5},
+{nome: 'Valete', nipe:'Espadas', pontuação: 0.5},
+{nome: 'Valete', nipe:'Ouros', pontuação: 0.5},
+{nome: 'Valete', nipe:'Paus', pontuação: 0.5},
+
+{nome: 'Rainha', nipe:'Copas', pontuação: 0.5},
+{nome: 'Rainha', nipe:'Espadas', pontuação: 0.5},
+{nome: 'Rainha', nipe:'Ouros', pontuação: 0.5},
+{nome: 'Rainha', nipe:'Paus', pontuação: 0.5},
+
+{nome: 'Rei', nipe:'Copas', pontuação: 0.5},
+{nome: 'Rei', nipe:'Espadas', pontuação: 0.5},
+{nome: 'Rei', nipe:'Ouros', pontuação: 0.5},
+{nome: 'Rei', nipe:'Paus', pontuação: 0.5},
+
+]
+
+function pedir() {
+var aleatorio = Number(Math.random()).toFixed(1) * cartasJogo.length;
+
+cartasJogo += aleatorio;
+
+div_mensagem.innerHTML = `${aleatorio}`;
+}
+
+</script>

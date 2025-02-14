@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+Quantas pessoas vão entrar no carro? <input type="text" id="input_qtdcarro">
+<button onclick="analisar()">#Partiu Carona</button>
+<div id="div_mensagem"></div>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var qtdpessoas = Number(input_qtdcarro.value);
+
+        for (var contador = 1; contador <= qtdpessoas; contador++) {
+            if (contador == 1) {
+                div_mensagem.innerHTML += `Entrou o ${contador}º passageiro (que é o(a) motorista) <br>`;
+            } else if (contador <= 5) {
+                div_mensagem.innerHTML += `Entrou o ${contador}º passageiro <br>`;
+            } else if (contador > 5) {
+                div_mensagem.innerHTML += `O ${contador}º passageiro terá que esperar! <br> `;
+            }
+        }
+
+    }
+</script>

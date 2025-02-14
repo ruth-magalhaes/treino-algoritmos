@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    Qual a última série (SITCOM) que você assistiu? <input id="input_serie">
+    <br><br><br><br>
+    Quantos episódios você já assistiu? <input id="input_episodio" <br><br><br><br>
+
+    <button onclick="calcular()">Verificar Nível</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        var serie = (input_serie.value);
+        var ep = Number(input_episodio.value);
+        var episodiototal = ep * 22;
+        var hora = episodiototal / 60;
+
+        div_mensagem.innerHTML = `Vejo que você gosta da série ${serie}`;
+
+        if ( hora > 30) {
+
+            div_mensagem.innerHTML += `Uau, você realmente gosta dessa série!`;
+        }
+
+
+    }
+
+
+</script>
+
+

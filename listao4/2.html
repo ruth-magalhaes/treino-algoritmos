@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Quantas latinhas de refrigerante você toma por dia? <input type="text" id="input_quantidade">
+
+    <br><br><br><br>
+
+    <button onclick="calcular()">Quantos refris?</button>
+    <br><br><br><br>
+<div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+
+        var refri = Number(input_quantidade.value);
+        var consumo = refri * 365;
+
+        if (consumo => 500) {
+
+            div_mensagem.innerHTML = `Você consome ${consumo} latinhas por ano, Cuidado com a diabetes!`;
+        }  
+
+        if (consumo < 500) {
+
+            div_mensagem.innerHTML = `Você consome ${consumo} latinhas por ano`;
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+</script>

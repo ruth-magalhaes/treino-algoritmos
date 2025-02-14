@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Quantidade de Números sorteados: <input type="text" id="input_num">
+
+    <button onclick="gerar()">Gerar Aleatórios</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function gerar() {
+        div_mensagem.innerHTML = "";
+        var numeros = Number(input_num.value);
+        var contadorabaixo = 0;
+        var contadoracima = 0;
+        var total = 0;
+        var menornum = 1;
+        var maiornum = 0;
+        
+        for (var cont = 1; cont <= numeros; cont++) {
+            
+            var aleatorio = Math.random();
+            total += aleatorio;
+
+            if (aleatorio >= 0.5) {
+                contadoracima++;
+                div_mensagem.innerHTML += `${aleatorio}. Metade SUPERIOR <br>`;
+            } else {
+                contadorabaixo++;
+                div_mensagem.innerHTML += `${aleatorio}.Metade INFERIOR <br>`;
+            }
+
+            if(aleatorio > maiornum) {
+                 maiornum = aleatorio ;
+            }
+
+            if(aleatorio < menornum) {
+                menornum  = aleatorio;
+            }
+        } 
+        
+        var media = total / numeros;
+        
+        div_mensagem.innerHTML += `<br>Total de números sorteados abaixo da metade: ${contadorabaixo} <br>
+        <br>Total de números sorteados acima da metade: ${contadoracima} <br>
+        <br>Média de números sorteados: ${media} <br> 
+        <br>Maior número sorteado: ${maiornum} <br>  
+        <br>Menor número sorteado: ${menornum} <br>  `;
+
+
+
+    }
+</script>

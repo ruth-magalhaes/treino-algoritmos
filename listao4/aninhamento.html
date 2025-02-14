@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aninhamento</title>
+</head>
+
+<body>
+    Numero: <input id="input_numero"><br>
+    <button onclick="analisar()">Analisar</button>
+
+</body>
+
+</html>
+
+<script>
+
+    function analisar() {
+        var numero = Number(input_numero.value);
+
+
+
+        if (numero < 0) {
+            alert(`o número ${numero} é menor que 0`);
+        } else {
+            if (numero <= 25) {
+                alert(`o número ${numero} está entre 0 e 25`);
+            } else {
+                if (numero <= 50) {
+                    alert(`o número ${numero} está entre 25 e 50`);
+
+                } else {
+                    alert(`o número ${numero} é maior que 50`);
+                }
+            }
+        }
+    }
+</script>

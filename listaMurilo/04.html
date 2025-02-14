@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    nome: <input type="text" id="input_nome"><br>
+    senha: <input type="password" id="input_senha"><br>
+    <button onclick="cadastrar()">cadastrar</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        var nome = input_nome.value;
+        var senha = input_senha.value;
+
+        if(nome == "admin" && senha == "123senha") {
+            div_mensagem.innerHTML = `Login realizado com sucesso!`;
+        } else {
+            div_mensagem.innerHTML = `Credenciais inválidas`;
+        }
+    }
+</script>
+
+
+<!-- O protótipo é razoavelmente simples, sua líder descreveu ele da seguinte forma: Crie um programa na linguagem JavaScript que receba o nome de usuario e a senha de uma pessoa. Se o nome de usuário for igual a “admin” e a senha igual a “123senha” seu programa deve exibir a mensagem: “Login realizado com sucesso!”. Caso contrário, seu programa deve exibir a mensagem “Credenciais inválidas…”:
+
+Exemplo de entrada:
+
+● Juca
+
+● 123senha
+
+Saída esperada:
+
+● Credenciais invalidas
+
+Exemplo 2 de entrada:
+
+● admin
+
+● 123senha
+
+Saída esperada:
+
+● Login realizado com sucesso! -->

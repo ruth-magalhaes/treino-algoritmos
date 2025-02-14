@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Informe o início do intervalo: <input type="number" id="input_inicio">
+    Informe o fim desse intervalo: <input type="number" id="input_final">
+    <button onclick="analisar()">Curto 3 e 5</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+
+
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var inicio = Number(input_inicio.value);
+        var final = Number(input_final.value);
+
+        for (var contador = 0; contador <= final; contador++) {
+
+
+            if (contador % 3 == 0 && contador % 5 == 0) {
+                div_mensagem.innerHTML += `<br>É TRI!É PENTA!`;
+            } else if (contador % 3 == 0) {
+                div_mensagem.innerHTML += `<br>É TRI!`;
+            } else if (contador % 5 == 0) {
+                div_mensagem.innerHTML += `<br>É PENTA!`;
+            } else {
+                div_mensagem.innerHTML += `<br>${contador}`;
+            }
+        }
+    }
+</script>

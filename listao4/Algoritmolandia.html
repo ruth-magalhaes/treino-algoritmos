@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Valor do salário: <input id="input_salario">
+    <br><br><br>
+
+    Adicional mensal: <input id="input_mensal">
+    <br><br><br>
+
+    Bônus do usuário: <input id="input_bonus">
+    <br><br><br>
+
+    <button onclick="calcular()">Analisar Minha Renda</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+
+        var salario = Number(input_salario.value);
+        var mensal = Number(input_mensal.value);
+        var bonus = Number(input_bonus.value);
+        var bruto = Number(salario + mensal + bonus);
+        var descontoir = 0;
+        var descontoinss = 0;
+        var fgts = 0;
+        var liquido = 0;
+
+
+
+        if (bruto >= 10000) {
+            //  desconto de IR
+            descontoir = (bruto * 0.125);
+
+            descontoinss = (bruto - descontoir) * 0.1;
+
+            fgts = (bruto - descontoir) * 0.08;
+
+            var descontos = (descontoir + descontoinss) + fgts;
+
+            liquido = bruto - descontos;
+
+        }
+
+        if (bruto > 2500) {
+
+
+            // descontoir = (bruto * 0.125);
+
+            descontoinss = (bruto - descontoir) * 0.1;
+
+            fgts = (bruto - descontoir) * 0.08;
+
+            var descontos = (descontoir + descontoinss) + fgts;
+
+            liquido = bruto - descontos;
+
+
+        }
+
+        if (bruto <= 2500) {
+
+
+            // descontoir = (bruto * 0.125);
+
+            descontoinss = (bruto - descontoir) * 0.1;
+
+            fgts = (bruto - descontoir) * 0.08;
+
+            var descontos = (descontoir + descontoinss) + fgts;
+
+            liquido = bruto - descontos;
+
+
+        }
+
+
+        div_mensagem.innerHTML += `Com o salário de R$ ${salario}, com adicional de R$ ${mensal} e 
+<br> bônus de R$ ${bonus}, você tem: 
+
+<br> Bruto: ${bruto}  
+
+<br> IR: ${descontoir}  
+
+<br> INSS: ${descontoinss} 
+
+<br> FGTS: ${fgts} 
+
+<br> Líquido: ${liquido}`;
+
+
+
+
+        var poupar = liquido * 0.15;
+        var pouparano = poupar * 12;
+
+        if (liquido >= 10000) {
+            div_mensagem.innerHTML += `<br> Com a renda de R$ ${liquido}, é recomendado poupar R$ ${poupar}, para que em um ano tenha poupado R$ ${pouparano}`;
+        }
+        if (liquido > 2500) {
+
+            div_mensagem.innerHTML += `<br> Com a renda de R$ ${liquido}, é recomendado poupar R$ ${poupar}, para que em um ano tenha poupado R$ ${pouparano}`;                
+
+
+        }
+        if (liquido <= 2500) {
+
+            div_mensagem.innerHTML += `<br> Com a renda de R$ ${liquido}, é recomendado obter renda extra para realizar uma poupança.`;
+
+
+        }
+
+    }
+
+
+
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    preço: <input type="number" id="input_preco"><br>
+    nome do produto: <input type="text" id="input_produto"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button><br><br><br>
+    <select id="select_escolha">
+        <option selected disabled value="#">Selecione</option>
+        <option value="1">Preços acima de</option>
+        <option value="2">Preços abaixo de</option>
+    </select> <br><br>
+
+    Valor: <input type="number" id="input_valor"><br>
+    <button onclick="filtrar()">Filtrar Produtos</button><br><br><br>
+
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+
+    var listaPreco = [];
+    var listaProduto = [];
+    function cadastrar() {
+        var preco = Number(input_preco.value);
+        var nomeProduto = input_produto.value;
+
+        if (preco < 0 || nomeProduto.length < 3) {
+            div_mensagem.innerHTML = `cadastro inválido!`;
+        } else {
+            listaPreco.push(preco);
+            listaProduto.push(nomeProduto);
+            div_mensagem.innerHTML = `produto cadastrado com sucesso`;
+        }
+    }
+
+    function atualizar() {
+
+        div_mensagem.innerHTML = ` Você tem ${listaProduto.length} produtos cadastrados em estoque:<br>`;
+        var soma = 0;
+        for (var contador = 0; contador <= listaPreco.length - 1; contador++) {
+            soma += listaPreco[contador];
+
+            div_mensagem.innerHTML += `${contador + 1}. ${listaProduto[contador]} R$${listaPreco[contador]} <br>`;
+        }
+        div_mensagem.innerHTML += `<br>Seu estoque vale R$${soma}`;
+    }
+
+    function filtrar() {
+        var valor = Number(input_valor.value);
+        var escolha = Number(select_escolha.value);
+
+        for (var i = 0; i <= listaPreco.length - 1; i++) {
+
+
+            if (escolha == 2 && valor > listaPreco[i]) {
+                div_mensagem.innerHTML += `<br>R$${listaPreco[i]} - ${listaProduto[i]}<br>`;
+
+            } else if (escolha == 1 && valor < listaPreco[i]) {
+                div_mensagem.innerHTML += `<br>R$${listaPreco[i]} - ${listaProduto[i]}<br>`;
+
+
+            }
+
+        }
+    }
+
+
+   
+</script>
+
+
+
+<!-- 0. Crie um programa o qual:  
+
+a) Pergunte ao usuário o preço e o nome de um produto; 
+
+b) Ao clicar em "Cadastrar", caso o preço seja positivo e o nome contenha ao menos 3 letras, registra as informações num lugar que o usuário não vê e exibe uma mensagem de sucesso. Caso contrário, exibe uma mensagem explicativa; 
+
+c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços e o nome dos produtos cadastrados e  um texto como este abaixo:  
+
+     Você tem AAA produtos cadastrados em estoque:
+
+     1. BBB - R$CCC 
+
+     2. BBB - R$CCC  
+
+     Seu estoque vale R$DDD 
+
+Em AAA é a quantidade de produtos cadastrados pelo usuário, BBB o nome do produto, CCC o preço do produto e DDD é a soma de todos os valores. 
+
+d) Tenha uma select com as opções "Preços acima de" e "Preços abaixo de" e um campo "Valor".
+
+e) Ao clicar no botão "Filtrar Produtos", deve exibir a lista de produtos filtrada de acordo com o valor informado no campo e a opção selecionada.
+
+OBS: caso escolha "Preços acima de" e o valor seja "20", deve exibir somente produtos cadastrados com preço acima de 20. -->

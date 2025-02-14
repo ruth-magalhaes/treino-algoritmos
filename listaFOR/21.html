@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .star {
+            width: 15px;
+            height: auto;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+
+    Quantos depósitos você fez no banco? <input type="number" id="input_deposito"><br><br>
+    Informe o valor do depósito: <input type="number" id="input_valor"><br><br>
+    <button onclick="analisar()">Acompanhar Grana</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var quantidade = Number(input_deposito.value);
+        var valor = Number(input_valor.value);
+        var total = 0;
+
+
+        for (var contador = 1; contador <= quantidade; contador++) {
+
+            total += valor;
+
+
+            if (contador % 3 == 0) {
+             
+                total = total + (total * 0.01);
+
+              
+                div_mensagem.innerHTML +=  `${contador} Mês: R$ ${total} <br> <img class="star" src="https://img.freepik.com/vetores-gratis/estrela-de-metal-3d-isolada_1308-117760.jpg" alt="Estrela">`;
+            } else if (contador > 3) {
+
+                div_mensagem.innerHTML += `${contador} Mês: R$ ${total} <br>`;
+            } else {
+
+                div_mensagem.innerHTML += `${contador} Mês: R$ ${total} <br>`;
+            }
+        }
+    }
+
+</script>
+
+
+
+<!-- Refaça o programa anterior de tal forma de que, somente nos meses que ganhou o "bônus", apareça uma imagem de uma estrela bem pequena (reduza a imagem para ficar quase do tamanho da fonte) à direita do valor acumulado.  -->

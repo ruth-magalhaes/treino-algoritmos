@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Nome do produto: <input type="text" id="input_nome"><br>
+    Preço de compra:<input type="number" id="input_preco"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="estoque()">Relatório de estoque</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    var listaProduto = [];
+    var listaPreco = [];
+    function cadastrar() {
+        var produto = input_nome.value;
+        var preco = Number(input_preco.value);
+
+        listaProduto.push(produto);
+        listaPreco.push(preco);
+    }
+    div_mensagem.innerHTML = "";
+    function estoque() {
+        
+        div_mensagem.innerHTML += ` Total de produtos: ${listaProduto.length} <br> `
+        for (var contador = 1; contador <= listaProduto.length; contador++) {
+        
+            div_mensagem.innerHTML += ` Produto ${contador}: ${listaProduto[contador - 1]}  <br>
+            Preço de compra: R$ ${listaPreco[contador - 1]} Vender por R$ ${listaPreco[contador - 1] * 1.25}  <br> `;
+
+        }
+    } 
+</script>
+
+<!-- Crie um pequeno sistema de loja eletrônica o qual:  
+
+a) Tenha um campo "Nome do produto" e outro "Preço de compra"; 
+
+b) Tenha um botão "Cadastrar". Ao clicar nele, o nome e preço ficam cadastrados em algum lugar, por enquanto invisível ao usuário  
+
+c) Tenha um botão "Relatório de estoque". Ao clicar nele, deve aparecer uma listagem dos produtos cadastrados com seu valor para venda, como no exemplo a seguir:  
+
+   Total de produtos: 2  
+
+   Produto 1: Leite de arroz  
+
+   Preço de compra: R$1.50. Vender por R$1,87  
+
+   Produto 2: Caixa de chocolates  
+
+   Preço de compra: R$9.00. Vender por R$11,25  
+
+O preço de venda é sempre o valor da compra mais 25%. 
+
+#FicaDica: De repente você pode precisar de 2 vetores aqui ;)   -->

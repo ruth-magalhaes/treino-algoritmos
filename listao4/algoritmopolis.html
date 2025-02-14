@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>HIGIENÓPOLIS</h1>
+    <br><br><br><br>
+    Qual a distância percorrida? <input id="input_distancia">
+    <br><br><br>
+    Qual o tempo de duração da viagem? <input id="input_tempo">
+    <br><br><br>
+    Qual a quantidade de passageiros? <input id="input_passageiros">
+    <br><br><br>
+    Horário de início da viagem: <input id="input_horarioInicio">
+    <br><br><br>
+    <button onclick="calcular()">Realizar Viagem</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    function calcular() {
+
+        var distancia = Number(input_distancia.value);
+        var duracaoViagem = Number(input_tempo.value);
+        var passageiros = Number(input_passageiros.value);
+        var horaInicio = Number(input_horarioInicio.value);
+        var custoPercurso = distancia * 0.77;  // custo do percurso
+        var tempoEstimado = distancia * 1.8; // estimativa de tempo da corrida
+
+        var taxaAdc = 0;
+        var taxaDesc = 0;
+
+        // tempo de viagem informado pelo usuário seja maior ou igual ao tempo estimado da corrida + 10%, 
+        //haverá uma taxa de acréscimo de 7% ao custo do percurso.  
+        if (duracaoViagem >= tempoEstimado) {
+
+            taxaAdc = custoPercurso * 0.07;
+        }
+        //tempo de viagem informado pelo usuário seja menor que o tempo estimado da corrida - 10%, haverá uma taxa de desconto de 8% ao custo do percurso. 
+        if (duracaoViagem < tempoEstimadomenor) {
+
+            taxaDesc = custoPercurso * 0.08;
+        }
+        //calcular o adicional de carga sendo R$ 3,00 por cada passageiro extra
+
+        var passageiroExtra = (passageiros * 3) - 3;
+
+        var taxaBonus = 0;
+        var taxaAdicional = 0;
+        // horário de início da corrida
+        if (horario <= 6) {
+
+            taxaBonus += custoPercurso - 0.09;
+
+        }
+
+        if (horario > 20) {
+
+            taxaAdicional -= custoPercurso - 0.11;
+
+        }
+
+        //     "Custo do Percurso" + "Acréscimo ou Desconto de Duração vs Estimativa" + "Adicional de Carga" - “Bônus de Horário” + "Adicional de Horário"  
+
+
+if ( duracaoViagem >= )
+        if (duração >= tempoEstimadoMin + (tempoEstimadoMin * 0.1)) {
+            acrescimos = acrescimos + taxaAcrescimo;
+        }
+        if (duração < tempoEstimadoMin + (tempoEstimadoMin * 0.1)) {
+            descontos = descontos - desconto
+        }
+            div_mensagem.innerHTML = `A viagem foi iniciada às AA horas e tinha estimativa de BB minutos e durou CC minutos, percorrendo DD KM, com EE passageiros, totalizando R$FF do preço da corrida. Com essa distância, foram consumidos GG litros de gasolina, totalizando R$HH de consumo.`;
+        }
+
+
+
+</script>

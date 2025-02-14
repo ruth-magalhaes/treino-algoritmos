@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece</title>
+</head>
+
+<body>
+
+    Epsódio que deseja começar assistindo: <input type="number" id="input_epcomeco"><br><br>
+    Quantidade de tempo disponível: <input type="number" id="input_tempodis"><br><br>
+    Unidade de tempo em: <select id="select_tempo">
+        <option selected disabled value="#">Selecione uma opção</option>
+        <option value="1">Horas</option>
+        <option value="2">Minutos</option>
+    </select><br><br>
+    Pular abertura <select id="select_abertura">
+        <option selected disabled="#">Selecione uma opção</option>
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select><br><br>
+    Pular encerramento? <select id="select_encerramento">
+        <option selected disabled value="#">Selecione uma opção</option>
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
+    </select><br><br>
+
+    <button onclick="analisar()">Assistir episódios</button>
+
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        var epinicio = Number(input_epcomeco.value);
+        var tempo_disponivel = Number(input_tempodis.value);
+        var tempoHouM = (select_tempo.value);
+        var pular_abertura = (select_abertura.value);
+        var pular_encerramento = (select_encerramento.value);
+        var tempoep = 24;
+        var frase = "";
+
+        if (tempoHouM == '#') {
+            alert("Opção inválida. Tente novamente!");
+        }
+
+        if (pular_abertura == '#') {
+            alert("Opção inválida. Tente novamente!");
+        }
+
+        if (pular_encerramento == '#') {
+            alert("Opção inválida. Tente novamente!");
+        }
+
+        if (epinicio < 1 || epinicio > 1100) {
+            alert("O número do episódio é inválido");
+        } else {
+
+            if (tempoHouM == '1') {
+                tempoHouM = tempoHouM * 60;
+            }
+
+            if (pular_abertura == '1' && pular_encerramento == '1') {
+                tempoep = 20;
+            } else if (pular_abertura == '1' && pular_encerramento == '2') {
+                tempoep = 22;
+            } else if (pular_abertura == '2' && pular_encerramento == '1') {
+                tempoep = 22;
+            }
+            var total = tempo_disponivel / tempoep;
+
+            for (var contador = epinicio; tempo_disponivel > 0; contador++) {
+                frase += `<br>Episódio: ${contador} <br>`;
+
+
+
+                for (var cont = 1; cont <= tempoep; cont++) {
+                    if (tempo_disponivel > 0) {
+                        if (pular_abertura == "2" && cont <= 2) {
+                            frase += `Minuto: ${cont}: Assistindo a Abertura.<br>`;
+                            tempo_disponivel--;
+
+                        } else if (pular_encerramento == "2" && cont > (tempoep - 2)) {
+                            frase += `Minuto: ${cont}. Assistindo o Encerramento. <br>`;
+                            tempo_disponivel--;
+                        } else {
+
+                            frase += `Minuto: ${cont}. Assistindo o Episódio. <br>`;
+                            tempo_disponivel--;
+                        }
+                    }
+                }
+                div_mensagem.innerHTML = frase;
+                div_mensagem.innerHTML += `<br><br>Fim dos epsódios!<br> Foram assistidos ${total} episódios!`;
+            }
+
+
+        }
+    }
+
+
+
+</script>

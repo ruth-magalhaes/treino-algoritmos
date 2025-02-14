@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #tela2 {
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="tela1">
+    <h1>Seja bem vindo ao banco KNAB</h1><br>
+    <h3>Simulação de empréstimos e investimentos</h3><br>
+
+    <h4>Entre com os dados de sua conta:</h4>
+    <input type="number" id="input_conta" placeholder="conta"> 
+    <input type="number" id="input_digito" placeholder="digito"> 
+    <input type="password" id="input_senha" placeholder="senha"><br><br><br>
+
+    <button onclick="simular()">Simular</button>
+    <div id="div_mensagem"></div>
+</div>
+
+<div id="tela2">
+    <h1>O banco KNAB é a sua melhor opção</h1><br><br>
+    <h3>Empréstimos e investimentos com a melhor taxa do mercado</h3><br><br>
+
+    <h4>Entre com os dados da sua simulação:</h4><br>
+
+    Valor da operação: <input type="number" id="input_valor" placeholder="valor">
+    <br>
+
+</div>
+
+</body>
+
+</html>
+
+<script>
+    function simular() {
+        var conta = Number(input_conta.value);
+        var digito = Number(input_digito.value);
+        var senha = (input_senha.value);
+
+        if (conta != 0 && digito == conta % 10) {
+            if ((digito == 0 || digito == 1 || digito == 2 || digito == 3) && senha == manaus) {
+                div_mensagem.innerHTML = "";
+            } else if (digito >= 4 && digito <= 7 && senha == recife) {
+                div_mensagem.innerHTML = "";
+            } else if (digito > 7 && senha == fortaleza) {
+                div_mensagem.innerHTML = "";
+            } else {
+                alert("Informações inválidas!");
+            }
+        }
+
+    }
+</script>

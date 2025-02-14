@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantas latas de "Coca-Cola" você acha que já bebeu na vida? <input type="number" id="input_qtd"><br><br>
+    <button onclick="analisar()">Ver a quantidade</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var quantidade = Number(input_qtd.value);
+        for (var contador = 0; contador <= quantidade; contador++) {
+            div_mensagem.innerHTML += `${contador} latas<br>`;
+
+        }
+
+    }
+</script>

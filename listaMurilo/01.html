@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    nota: <input type="number" id="input_nota"><br><br>
+    <button onclick="registrar()">registrar</button>
+    <button onclick="calcular()">ver média</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    listaNota = [];
+    function registrar() {
+        var nota = Number(input_nota.value);
+
+        listaNota.push(nota);
+    }
+
+    function calcular() {
+var soma = 0;
+        for(var contador = 0; contador < listaNota.length; contador++ ) {
+soma += listaNota[contador];
+            div_mensagem.innerHTML += `nota${contador}: ${listaNota[contador]}<br> `;
+        } 
+        var media = soma / listaNota.length;
+        div_mensagem.innerHTML += `média: ${media}`;
+    }
+
+
+</script>

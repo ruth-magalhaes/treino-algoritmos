@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DESAFIO DA DONA RAFAELLA</h1> <br><br><br><br>
+
+    <!-- A RAFAELLA DA TURMA 1 ADS B QUEM CRIOU ESTE DESAFIO | A RUTH QUEM RESOLVEU ESTE DESAFIO -->
+
+    Nome do treinador: <input id="input_treinador">
+    <br><br><br>
+    Em qual nível seu pokémon Oshawott está? <input id="input_nivel">
+    <br><br><br><br>
+    <button onclick="calcular()">Descobrir Evolução</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        var treinador = (input_treinador.value);
+        var nivel = (input_nivel.value);
+
+
+        if (nivel < 17) {
+
+            nivel = 'oshawott';
+
+            div_mensagem.innerHTML = `<br><img src="https://cdn.gfinityesports.com/images/ncavvykf/gfinityesports/b6189240e1b928312af7d27db3780429ca06a81d-1919x1080.jpg?rect=0,37,1919,1007&w=1600&h=840" ><br><br>Você ainda está no começo ${treinador}, seu ${nivel} ainda precisa de muitas batalhas!`;
+
+
+        }
+
+
+        if (nivel >= 36) {
+
+            nivel = 'samurott';
+
+            div_mensagem.innerHTML = `<br><img src="https://static.wikia.nocookie.net/pokemon/images/5/57/Cameron_Samurott.png/revision/latest?cb=20151001060709"><br><br>Parabéns ${treinador}! Seu ${nivel} chegou à última evolução.`;
+
+        }
+
+        if (nivel >= 17) {
+            nivel = 'dewott';
+
+            div_mensagem.innerHTML = `<br><img src="https://64.media.tumblr.com/d17974c31ab3b33dbcfab034a492d8b1/726ef5abe38c1f4c-a8/s1280x1920/d0fe2485cd98e1d66ca0a17de73ef309bb532bc7.png"><br><br>Você ainda está na metade do caminho ${treinador}, seu ${nivel} deve batalhar muito mais!`;
+
+        }
+
+
+
+
+    }
+
+
+</script>
+
+
+<!---->

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Macarons: <input type="number" id="input_macarons"> <br>
+    Brigadeiros: <input type="number" id="input_brigadeiros"> <br>
+    Cupcakes: <input type="number" id="input_cupcakes"> <br>
+    Cheesecakes: <input type="number" id="input_cheesecakes"> <br>
+    preço da unidade  Macaron : <input type="number" id="input_precoMacaron"> <br>
+    preço da unidade Brigadeiro : <input type="number" id="input_precoBrigadeiro"> <br>
+    preço da unidade Cupcake : <input type="number" id="input_precoCupcake"> <br>
+    preço da unidade Cheesecake : <input type="number" id="input_precoCheesecake"> <br>
+
+    <button onclick="calcular()">Verificar Vendas</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+function calcular(){
+    var macaron = Number(input_macarons.value);
+    var brigadeiro =  Number(input_brigadeiros.value);
+    var cupcake = Number(input_cupcakes.value);
+    var cheesecake = Number(input_cheesecakes.value);
+    var valorMacaron = Number(input_precoMacaron.value);
+    var valorBrigadeiro = Number(input_precoBrigadeiro.value);
+    var valorCupcake = Number(input_precoCupcake.value);
+    var valorCheesecake = Number(input_precoCheesecake.value);
+    var soma = valorBrigadeiro * brigadeiro + valorCheesecake * cheesecake + valorCupcake * cupcake+ valorMacaron * macaron;
+    
+    if(macaron < 0 || brigadeiro < 0 || cupcake < 0 || cheesecake < 0 || valorMacaron < 0 || valorBrigadeiro < 0 || valorCupcake < 0 || valorCheesecake < 0){
+        div_mensagem.innerHTML += `Valor inválido! tente novamente.`;
+    } else {
+
+
+        for(var contador = 1; contador <= macaron; contador++ ){
+            div_mensagem.innerHTML  += `Vendeu ${contador}. <img src="macarons-foto-capa.webp" style="width:100p> ${valorMacaron} <br>"`;
+
+        }
+
+        for(      ; contador <= brigadeiro + macaron; contador++ ){
+            div_mensagem.innerHTML  += `Vendeu ${contador}. <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Brigadeiro.jpg/1200px-Brigadeiro.jpg" style="width:100px">  ${valorBrigadeiro} <br>`;
+
+        }
+        for( ; contador <= brigadeiro + macaron + cupcake; contador++ ){
+            div_mensagem.innerHTML += `Vendeu ${contador}. <img src="https://cdn.awsli.com.br/300x300/106/106026/produto/3225565/8c21e4cfcb.jpg" style="width:100px" > ${valorCupcake}<br> `;
+
+        }
+
+        for( ; contador <= brigadeiro + macaron + cupcake + cheesecake; contador++ ){
+            div_mensagem.innerHTML += `Vendeu ${contador}. <img src="https://cooknenjoy.com/wp-content/uploads/2022/12/cheesecake-chocolate-1-1200x1200.jpg" style="width:100px"> ${valorCheesecake}<br> `;
+
+        }
+        
+        div_mensagem.innerHTML += `Com a quantidade de ${macaron} Macarons, ${brigadeiro} Brigadeiros, ${cupcake} Cupcakes e ${cheesecake} Cheesecakes, a venda totalizará R$${soma}<br>`;
+    }  
+
+}
+</script>

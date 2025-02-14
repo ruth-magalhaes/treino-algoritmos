@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    base: <input type="number" id="input_base"><br>
+    altura: <input type="number" id="input_altura"><br>
+    <button onclick="calcular()">calcular área</button>
+    <div id="div_mensagem"></div>
+
+    
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var base = Number(input_base.value);
+        var altura = Number(input_altura.value);
+        var calcularArea = (base * altura) / 2;
+
+        if(calcularArea > 20) {
+            calcularArea = true;
+        } else {
+            calcularArea = false;
+        }
+        div_mensagem.innerHTML = `A àrea do triângulo é maior que 20? ${calcularArea}`;
+
+    }
+</script>

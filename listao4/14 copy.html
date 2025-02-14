@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>DESAFIO</h1>
+    <br><br><br><br>
+    Passageiro: <input id="input_passageiro">
+    <br><br><br>
+    Distância(km) do percurso: <input type="number" id="input_percurso">
+    <br><br><br>
+    Bandeira Corrida: <input type="number" min="1" max="3" id="input_bandeira">
+    <br><br><br>
+    Horário da Corrida: <input type="number" id="input_horario" min="0" max="23">
+    <br><br><br>
+    <button onclick="calcular()">Calcular Corrida</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    function calcular() {
+        var nome = (input_passageiro.value);
+        var distancia = Number(input_percurso.value);
+        var bandeira = Number(input_bandeira.value);
+        var horario = Number(input_horario.value);
+        
+        var valorCorrida = distancia * 1.25;
+        var valorTotal = valorCorrida;
+
+        valorTotal += valorCorrida * 0.05 * bandeira;
+
+       if (horario <= 12) {
+            valorTotal += valorCorrida * 0.10 * bandeira;
+        }
+
+        if (horario <= 23) {
+            valorTotal += valorCorrida * 0.15 * bandeira;
+        }
+        
+        div_mensagem.innerHTML = `Olá ${nome}. Sua corrida, será na bandeira ${bandeira}, percorrerá ${distancia}km e o total da corrida será de ${valorTotal} reais`;
+
+    }
+
+
+
+
+</script>

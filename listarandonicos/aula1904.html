@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button onclick="gerar()"> Gerar Aleatório</button>
+    
+<button onclick="gerar1()"> Gerar Aleatório entre 0 e 10</button>
+<button onclick="gerar2()"> Gerar Aleatório entre 5 e 20</button>
+<button onclick="gerar2()"> Gerar Aleatório entre 24 e 49</button>
+<button onclick="gerar3()"> Gerar Aleatório entre 24 e 49</button>
+<button onclick="gerar4()"> Sortear</button>
+
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function gerar() {
+        var aleatorio = Math.random();
+        div_mensagem.innerHTML = `Sorteado: ${aleatorio}<br>`; 
+        div_mensagem.innerHTML = `Sorteado: ${aleatorio}<br>`; 
+
+    }
+
+    function gerar1() {
+        var aleatorio = Math.random();
+        var novo = aleatorio * 10;
+        div_mensagem.innerHTML = `Sorteado: ${novo}<br>`; 
+    
+
+    }
+
+    function gerar2() {
+        var aleatorio = Math.random();
+        var novo2 = aleatorio * 15 + 5;
+        div_mensagem.innerHTML = `Sorteado: ${novo2}<br>`; 
+    
+
+    }
+
+    function gerar3() {
+        var min = 24;
+        var max = 49;
+        var intervalo = max - min;
+        var aleatorio = Math.random();
+        var novo3 = aleatorio * intervalo + min;
+        var novoale = novo3.toFixed(2);
+        var inteiro = novo3.toFixed(0);
+
+        div_mensagem.innerHTML = `Sorteado: ${aleatorio}<br>
+        fixo2: ${novoale}<br>
+        fixo0: ${inteiro}<br>
+        Sorteado: ${novo3}<br>`; 
+    
+
+    }
+
+    function gerar4() {
+        
+        var aleatorio = (Math.random() * 4 + 1).toFixed(0);
+     
+
+        for(cont = 1; aleatorio != 3; cont++) {
+            var aleatorio = (Math.random() * 4 + 1).toFixed(0);
+
+        }
+
+        div_mensagem.innerHTML = `Você sorteou o número 3 em ${cont} tentativas. <br>`; 
+    
+
+    }
+</script>

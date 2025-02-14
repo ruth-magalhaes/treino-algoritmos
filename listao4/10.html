@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Qual o valor do seu saldo na conta do banco? <input id="input_saldo">
+    <br><br><br><br>
+    <button onclick="calcular()">Verificar Finanças</button>
+    <div id="div_mensagem"></div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+
+        var saldo = Number(input_saldo.value);
+
+
+        if (saldo == 0) {
+
+            div_mensagem.innerHTML = `Conta zerada`;
+        }
+
+        if (saldo < 0) {
+
+            div_mensagem.innerHTML = `<span style ="color: red;"> Está devendo!  </span>`;
+
+        }
+
+        if (saldo > 0) {
+
+            div_mensagem.innerHTML = `<span style ="color: blue;"> Saldo positivo! :D </span>`;
+
+        }
+
+
+    }
+
+
+
+
+</script>

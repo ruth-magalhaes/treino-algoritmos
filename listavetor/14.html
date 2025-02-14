@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  digite um número: <input type="number" id="input_numero">  
+  <button onclick="cadastrar()">Analisar Histórico</button>
+  <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var listaNumero = [];
+    function cadastrar(){
+var numero = Number(input_numero.value);
+
+listaNumero.push(numero);
+
+var maiorNum = listaNumero[0];
+var menorNum = listaNumero[0];
+
+div_mensagem.innerHTML ="";
+for (var contador = 0; contador < listaNumero.length; contador++){
+
+    var numeroAtual = listaNumero[contador];
+    div_mensagem.innerHTML += ` ${contador + 1}° Número ${numeroAtual}<br> `;
+
+    if(numeroAtual <menorNum) {
+        menorNum = numeroAtual;
+    }
+
+    if(numeroAtual > maiorNum) {
+        maiorNum = numeroAtual;
+    }
+} div_mensagem.innerHTML += `Maior: ${maiorNum}<br>
+Menor: ${menorNum}`;
+
+    }
+</script>

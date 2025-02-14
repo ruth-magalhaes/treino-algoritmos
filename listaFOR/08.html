@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    número: <input type="number" id="input_num"><br>
+    <button onclick="analisar()">Viva o 7!</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var contador = Number(input_num.value);
+var limite = 200;
+        for (contador = 0; contador <= limite; contador++) {
+            var resto = contador % 7;
+
+            if (resto == 0) {
+
+                div_mensagem.innerHTML += `${contador}<br>`
+            }
+        }
+
+    }
+</script>
+
+<!-- 
+Receba um número (tem que estar entre 0 e 200);  
+
+b) Ter um botão chamado "Viva o 7!"   
+
+c) Ao clicar nesse botão, devem aparecer todos os múltiplos de 7 entre 0 e o número informado em a)  -->

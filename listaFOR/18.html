@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Quantas xícaras de café com leite você já tomou na vida? <input type="number" id="input_qtdcafe"><br><br>
+    <button onclick="analisar()">Ver a quantidade</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        var qtdcafeleite = Number(input_qtdcafe.value);
+        var url_cafe = "https://img.freepik.com/fotos-premium/cafe-em-po-na-colher-de-madeira-em-branco_253984-1697.jpg";
+        var url_leite = "https://bolosparavender.com.br/wp-content/uploads/2020/08/fazer-bolo-com-leite-em-po-da-certo-como-fazer.jpg";
+
+      for(var cont = 1; cont <= qtdcafeleite; cont++) {
+        div_mensagem.innerHTML += `
+        <img src="${url_cafe}"/>
+        <img src="${url_cafe}" />
+        <img src="${url_leite}"/>
+        
+        `;
+      }
+      
+        if (qtdcafeleite) {
+            div_mensagem.innerHTML = `${leite} colheres com leite em pó. <br> ${cafe} colheres de café em pó.  `;
+        }
+
+    }
+</script>

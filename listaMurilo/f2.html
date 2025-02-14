@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="visualizar()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function visualizar() {
+        var texto = "eu vou conseguir passar com êxito!";
+
+        for(var contador = 1; contador < 7; contador++ ) {
+
+            div_mensagem.innerHTML += `${contador}: ${texto}<br>`;
+        }
+    }
+</script>

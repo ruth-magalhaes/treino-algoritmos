@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantos dias por semana você faz musculação? <input type="number" id="input_dias"><br>
+    <button onclick="analisar()">Exibir rotina mensal</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var dia = Number(input_dias.value);
+        var musculacao = "Musculação";
+
+        for(var contador = 0; contador < 30; contador++){
+
+            if(contador % 3 == 0){
+                div_mensagem.innerHTML += `Dia ${contador + 1} - ${musculacao}<br>`;
+            } else {
+                div_mensagem.innerHTML += `Dia ${contador + 1} - comer e dormir.<br>`;
+            }
+
+            
+            
+        }
+    }
+</script>

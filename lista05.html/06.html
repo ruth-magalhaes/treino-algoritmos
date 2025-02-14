@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Qual time de São Paulo você torce? <input type="text" id="input_time"><br>
+    <button onclick="calcular()">Fale sobre esse time</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+
+<script>
+
+    function calcular() {
+        var time = (input_time.value);
+
+        if (time == 'corinthinas') {
+            div_mensagem.innerHTML = `<span style="color: red; background-color: magenta;">A ruth bateu no proprio professor</span>`;
+        } else if (time == 'Palmeiras') {
+            div_mensagem.innerHTML = `<div> Salve o alviverde imponente </div>`;
+        } else if (time == 'Santos') {
+            div_mensagem.innerHTML = `Agora quem dá a bola é o Santos`;
+        } else if (time == 'São Paulo') {
+            div_mensagem.innerHTML = `Salve o Tricolor paulista`;
+        }
+
+    }
+
+
+
+    //var mensagemDiv = document.getElementById("div_mensagem");
+
+    //if (time == 'Corinthians') {
+    //  mensagemDiv.innerHTML = `Salve o Corinthians`;
+    // mensagemDiv.className = "corinthians";
+
+
+
+</script>

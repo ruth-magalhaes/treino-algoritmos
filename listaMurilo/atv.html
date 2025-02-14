@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    ingrediente: <input type="text" id="input_ingrediente"><br><br>
+    peso em gramas:<input type="number" id="input_grama"><br><br>
+    preço por quilo: <input type="number" id="input_quilo"><br><br>
+    <button onclick="adicionar()">Adicionar Ingrediente no Blend</button><br><br>
+
+    nome do hamburguer: <input type="text" id="input_nome"><br><br>
+    <button onclick="preparar()">Preparar Blend e Registrar</button><br><br>
+
+    <button onclick="montar()">Montar Cardápio de Lanches</button><br><br>
+
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem2"></div>
+</body>
+
+</html>
+
+<script>
+
+    var listaIngrediente = [];
+    var listaPesoGrama = [];
+    var listaPrecoQuilo = [];
+    function adicionar() {
+        var ingrediente = input_ingrediente.value;
+        var pesoGrama = Number(input_grama.value);
+        var precoQuilo = Number(input_quilo.value);
+
+
+
+        if (ingrediente == "" || pesoGrama == "" || precoQuilo == "") {
+            div_mensagem.innerHTML = `Insira as informações nos campos antes de clicar!`;
+        } else if (listaIngrediente.indexOf(ingrediente) >= 0) {
+            div_mensagem.innerHTML += `Este ingrediente já existe!`;
+
+        } else {
+            listaIngrediente.push(ingrediente);
+            listaPesoGrama.push(pesoGrama);
+            listaPrecoQuilo.push(precoQuilo);
+
+
+            div_mensagem.innerHTML += `Ingrediente adicionado com sucesso!<br>`;
+        }
+
+    }
+
+
+    
+
+    function preparar() {
+        div_mensagem.innerHTML = "";
+        var ingrediente = input_ingrediente.value;
+        var pesoGrama = Number(input_grama.value);
+        var precoQuilo = Number(input_quilo.value);
+        
+
+        var nomeHamburguer = input_nome.value;
+        var precoFinal = 0;
+        var pesoTotal = 0;
+
+
+        if (nomeHamburguer == '') {
+            alert("Preencha o campo para continuar!");
+        } else if () {
+        } else {
+
+        div_mensagem2.innerHTML =`  <br> PREPARANDO NOVO HAMBURGUER ${nomeHamburguer} <br>`;
+        for (var contador = 0; contador < listaIngrediente.length; contador++) {
+            var preco_kilo_total = (listaPesoGrama[contador] * listaPrecoQuilo[contador]) / 1000;
+            
+            precoFinal += preco_kilo_total;
+
+            var pesoAtual = listaPesoGrama[contador];
+            pesoTotal += pesoAtual;
+
+            var pesoNovo = listaPesoGrama[contador] * listaPesoGrama[contador];
+            pesoGrama += pesoNovo
+
+             var pFinal = listaPesoGrama[contador] * listaPrecoQuilo[contador];
+
+            div_mensagem2.innerHTML += `<br> ${contador +1} Ingrediente: ${listaIngrediente[contador]} - Peso: ${listaPesoGrama[contador]} - Preço KG: ${listaPrecoQuilo[contador]} 
+            - Preço Final: ${pFinal}`;
+
+        } 
+      
+            div_mensagem2.innerHTML += `<br><br>INFORMAÇÕES DO HAMBURGUER REGISTRADO NO CATÁLOGO:<br>
+        Nome: ${nomeHamburguer} <br>
+        Peso Total: ${pesoTotal}g <br>
+        Preço Total: ${precoFinal}<br>`;
+
+        }
+    }
+
+    function montar() {
+
+        if(!nomeHamburguer) {
+            alert("Preencha todos os campos para prosseguir!");
+        } else {
+
+
+
+            
+        }
+        
+    }
+
+</script>

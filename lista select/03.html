@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    tipo de passageiro:
+    <select id="select_passageiro">
+        <option selected disabled value="#">Selecione</option>
+        <option value="1"> Comum </option>
+        <option value="2"> Estudante </option>
+        <option value="3"> Idoso/PNE </option>
+    </select> <br><br><br><br><br>
+
+
+    tipo de passagem:
+    <select id="select_passagem">
+
+        <option selected disabled value="#">Selecione</option>
+        <option value="1"> Comum </option>
+        <option value="2"> Estudante </option>
+        <option value="3"> Idoso/PNE </option>
+    </select> 
+
+
+    <br><br> <br><br><button onclick="calcular()">Simular preço</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var passageiro = (select_passageiro.value);
+        var passagem = (select_passagem.value);
+        var preco = 0;
+        if (passageiro == '1' && passagem == '1') {
+            preco = 4.4 + 5.9;
+        } else if (passageiro == '2' && passagem == '2') {
+            preco = (4.4 / 2) + (5.9 / 2);
+        } else if (passageiro == '3' && passagem == '3') {
+            preco = 0;
+        }
+        div_mensagem.innerHTML = `Valor da passagem escolhida: R$ ${preco}`;
+    }
+</script>

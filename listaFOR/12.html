@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    tabuada: <input type="number" id="input_tabu"><br>
+    número máximo: <input type="number" id="input_max"><br>
+    <button onclick="analisar()">Ver Tabuada</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var tabuada = Number(input_tabu.value);
+        var maximo = Number(input_max.value);
+        
+        if (tabuada < 2 || tabuada > 9 || maximo < 1) {
+            alert("Valor inválido");
+        } else {
+            for( var contador = 1; contador <= maximo; contador++) {
+                var resultado = tabuada * contador;
+                div_mensagem.innerHTML += `${tabuada} x ${contador} = ${resultado}<br>`;
+            }
+        }
+
+    }
+</script>
+
+<!-- Pergunte, numa input ou lista suspensa (select/option), qual a tabuada que o usuário quer ver na tela (2 a 9);  
+
+b) Pergunte até que número a tabuada deve ser construída;  
+
+c) Ao clicar no botão “Ver Tabuada”, exiba abaixo a tabuada como neste exemplo (considerando que o usuário escolheu a tabuada do 3 e para ir até o 12).  
+
+    3 x 1 = 3   
+
+    3 x 2 = 6   
+
+    3 x 3 = 9   
+
+    3 x 4 = 12   
+
+    3 x 5 = 15   
+
+    3 x 6 = 18   
+
+    3 x 7 = 21   
+
+    3 x 8 = 24   
+
+    3 x 9 = 27   
+
+    3 x 10 = 30   
+
+    3 x 11 = 33   
+
+    3 x 12 = 36   
+
+d) Observar que quando o multiplicador for ímpar, a linha apareça na cor vermelha e quando for par, na cor azul. ex: "3 x 1 = 3" aparecer tudo em vermelho, mas "3 x 4 = 12" aparece tudo em azul.    -->
+
+   

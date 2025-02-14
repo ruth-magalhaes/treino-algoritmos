@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Quantos filhos você tem? <input id="input_filho">
+    <br><br><br><br>
+
+    <button onclick="calcular()">Analisar Família</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    function calcular() {
+        var filhos = (input_filho.value);
+
+        if (filhos >= 1) {
+
+            div_mensagem.innerHTML = `<br>Não tem TV`;
+
+            if (filhos >= 2) {
+
+                div_mensagem.innerHTML += `<br>Não tem internet`;
+
+
+                if (filhos >= 3) {
+
+                    div_mensagem.innerHTML += `<br>Não tem video game`;
+
+
+
+                    if (filhos >= 4) {
+
+                        div_mensagem.innerHTML += `<br>Não tem Netflix`;
+
+                    }
+                }
+            }
+
+        }
+
+
+    }
+
+
+
+
+
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Distancia percorrida: <input id="input_distancia"> <br>
+    Tempo de duração da viagem: <input id="input_duração"> <br>
+    Quantidade de passageiros: <input id="input_passageiros"> <br>
+    Hora de inicio da viagem: <input id="input_hora"> <br>
+    <button onclick="Calcular()"> Realizar viagem </button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+    function Calcular() {
+        var distancia = Number(input_distancia.value);
+        var duração = Number(input_duração.value);
+        var passageiro = Number(input_passageiros.value);
+        var hora = Number(input_hora.value);
+        var preço = 0.77 * distancia
+        var tempoEstimadoMin = 1.8 * distancia
+        var maiorTempo = tempoEstimadoMin 
+        var taxaAcrescimo = preço*0.07
+        var menorTempo = tempoEstimadoMin 
+        var desconto = preço*0.08
+        var combustivel = (distancia /12)
+        var preco_combustivel = combustivel * 4
+        var bonusHora = preço*0.9
+        var adicionalHora = preço*0.11
+
+        // var passExtra = passageiro * 3 - 3;
+        var passExtra = (passageiro - 1) * 3;
+
+        var acrescimos = 0;
+        var descontos = 0;
+
+        if (duração >= tempoEstimadoMin + (tempoEstimadoMin * 0.1)) {
+            acrescimos = acrescimos + taxaAcrescimo;
+        }
+        if (duração < tempoEstimadoMin + (tempoEstimadoMin * 0.1)) {
+            descontos = descontos - desconto
+        }
+        if (hora <=6 ) { 
+            descontos = descontos - bonusHora
+        }
+        if (hora >20) {
+            acrescimos = acrescimos + adicionalHora;
+        }
+
+        var preçoTotal = preço + passExtra + acrescimos - descontos
+
+
+        div_mensagem.innerHTML = `A viagem foi iniciada às ${hora} horas e
+       tinha estimativa de ${tempoEstimadoMin} minutos e durou ${duração} minutos,
+       percorrendo ${distancia} KM, com ${passageiro} passageiros,
+       totalizando R$${preçoTotal} do preço da corrida. 
+       Com essa distância, foram consumidos ${combustivel} litros de gasolina, 
+       totalizando R$${preco_combustivel} de consumo.`
+    }
+
+
+
+</script>

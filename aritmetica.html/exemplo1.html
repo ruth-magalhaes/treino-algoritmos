@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>CALCULE A APOSENTADORIA</h1>
+    
+Qual a sua idade, mulher? <input id="input_mu" type="text">
+<br><br><br><br>
+Qual a sua idade, homem? <input id="input_ho" type="text">
+<br><br><br><br>
+
+
+<button onclick="calcularm()">Aposentadoria Mulher</button>
+<button onclick="calcularh()">Aposentadoria Homem</button>
+
+
+
+</body>
+</html>
+
+
+
+<script>
+
+
+
+function calcularm() {
+
+var m = input_mu.value;
+var aposentadoriamulher = 60 - m;
+alert ("Faltam" + aposentadoriamulher + " anos para você se aposentar!");
+
+}
+
+
+function calcularh() {
+
+var h = input_ho.value;
+var aposentadoriahomem = 70 - h;
+alert ( "faltam" + aposentadoriahomem + " anos para você se aposentar!");
+
+}
+
+
+</script>
+
+
+
+

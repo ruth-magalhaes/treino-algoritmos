@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro de Endereço</h1>
+    <label> nome: <input type="text" id="input_nome"></label>
+    <label> cep: <input type="text" id="input_cep"></label>
+    complemento: <input type="text" id="input_comp"></label>
+    <label> logradouro: <input type="text" id="input_log"></label>
+    <label> bairro: <input type="text" id="input_bairro"></label>
+    <label> cidade: <input type="text" id="input_cidade"></label>
+    <label> estado: <input type="text" id="input_estado"></label>
+
+    <button onclick="buscar()">Buscar</button>
+
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+function buscar() {
+
+var cep = input_cep.value;
+
+
+    fetch('https://viacep.com.br/ws/0/json') 
+    .then(function(respostaServidor) {
+console.log(respostaServidor);
+
+respostaServidor.json()
+.then (function (respostaFormatada){
+
+    div_mensagem.innerHTML = respostaFormatada.json;
+
+input_comp.value = respostaFormatada.complemento;
+input_log.value = respostaFormatada.logradouro;
+input_bairro.value= respostaFormatada.bairro;
+input_cidade.value= respostaFormatada.cidade;
+input_estado.value= respostaFormatada.estado;
+
+
+console.log(respostaFormatada);
+
+})
+    })
+.catch(function(){
+
+
+
+
+
+})
+
+
+}
+    
+</script>

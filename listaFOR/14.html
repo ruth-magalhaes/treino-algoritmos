@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Idade do usuário: <input type="number" id="input_idade"><br>
+    <button onclick="analisar()">fases na vida</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML ="";
+
+        var idade = Number(input_idade.value);
+        for(var contador = 0; contador <= idade; contador++){
+            if (idade >= 0 && idade <= 4) {
+                div_mensagem.innerHTML += `${contador}. Primeira Infância.<br>`;
+            } else if ( idade > 4 && idade <= 6) {
+                div_mensagem.innerHTML += `${contador}. Pré-escolar.<br>`;
+            } else if (idade > 6 && idade <= 10) {
+                div_mensagem.innerHTML += `${contador}. Segunda Infância.<br>`;
+            } else if (idade > 10 && idade <= 18) {
+                div_mensagem.innerHTML += `${contador}.  Adolescência.<br>`;
+            } else if (idade > 18 && idade <= 50) {
+                div_mensagem.innerHTML += `${contador}.  Adulto.<br>`;
+            } else if (idade > 50 && idade <= 100) {
+                div_mensagem.innerHTML += `${contador}.   Melhor idade.<br>`;
+            }
+        }
+        
+
+
+    }
+</script>

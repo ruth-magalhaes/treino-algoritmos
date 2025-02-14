@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade Avaliativa 2</title>
+</head>
+
+<style>
+  .errado {
+    color: red;
+  }
+
+  .certo {
+    color: green;
+  }
+
+  #div1 {
+    display: unset;
+  }
+
+  #div2 {
+    display: none;
+  }
+</style>
+
+<body>
+  <div id="div1">
+    Ingrediente: <input type="text" id="inputNomeIngrediente"><br>
+    Peso em gramas: <input type="number" id="inputPeso"><br>
+    Preço por Kg: <input type="text" id="inputPreco"><br>
+    <button onclick="adicionar()">Adicionar ingrediente no Blend</button>
+    <br><br>
+    Nome do Hambúrguer: <input type="text" id="inputNome"><br>
+    <button onclick="registrar()">Preparar Blend e Registrar</button>
+    <br><br>
+    <button onclick="montar()">Montar Cardápio</button>
+    <div id="divMensagem"></div>
+  </div>
+
+  <div id="div2">
+    Tipo de Hambúrguer: <input type="text" id="inputTipo"><br>
+    Quantidade de hambúrgueres: <input type="text" id="inputQuantidade"> <br>
+    Queijo: <select id="selectQueijo">
+      <option value="NÃO">NÃO COLOCAR</option>
+      <option value="MUSSARELA">MUSSARELA</option>
+      <option value="PRATO">PRATO</option>
+      <option value="CHEDDAR">CHEDDAR</option>
+    </select>
+    <br>
+    Cebola: <select id="selectCebola">
+      <option value="NÃO">NÃO</option>
+      <option value="SIM">SIM</option>
+    </select>
+    <br>
+    Alface: <select id="selectAlface">
+      <option value="NÃO">NÃO</option>
+      <option value="SIM">SIM</option>
+    </select>
+    <br>
+    Tomate: <select id="selectTomate">
+      <option value="NÃO">NÃO</option>
+      <option value="SIM">SIM</option>
+    </select>
+    <br>
+    <button onclick="adicionarLanche()">Adicionar Lanche</button>
+    <div id="divMensagem2"></div>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+  var listaIngrediente = [];
+  var listaPeso = [];
+  var listaPreco = [];
+
+  var nomeCatalogo = [];
+  var pesoCatalogo = [];
+  var precoCatalogo = [];
+
+  var precoMussarela = 2;
+  var precoPrato = 2.50;
+  var precoCheddar = 3;
+  var precoCebola = 1.50;
+  var precoAlface = 1.75;
+  var precoTomate = 2;
+
+  function adicionar() {
+    var ingrediente = inputNomeIngrediente.value;
+    var peso = Number(inputPeso.value);
+    var preco = Number(inputPreco.value);
+
+
+    divMensagem.innerHTML = '';
+
+    if (ingrediente == '' || peso == 0 || preco == 0) {
+      divMensagem.innerHTML = '<p class="errado">Preencha todos os campos!</p>'
+    } else {
+      if (listaIngrediente.length == 0) {
+        listaIngrediente.push(ingrediente);
+        listaPeso.push(peso);
+        listaPreco.push(preco);
+        divMensagem.innerHTML = '<p class="certo">Ingrediente cadastrado com sucesso!</p>';
+        console.log(listaIngrediente)
+      } else {
+        console.log(ingrediente)
+        if (listaIngrediente.indexOf(ingrediente) != -1) {
+          divMensagem.innerHTML = '<p class="errado">Ingrediente já cadastrado!</p>'
+        } else {
+          listaIngrediente.push(ingrediente);
+          listaPeso.push(peso);
+          listaPreco.push(preco);
+          divMensagem.innerHTML = '<p class="certo">Ingrediente cadastrado com sucesso!</p>';
+        }
+      }
+    }
+  }
+
+  function registrar() {
+    var nome = inputNome.value;
+    var pesoTotal = 0;
+    var precoTotal = 0;
+    var precoFinal = 0;
+
+    if (nome == '') {
+      divMensagem.innerHTML = '<p class="errado">Insira o nome do hambúrguer!</p>'
+    } else if (listaIngrediente.length < 2) {
+      divMensagem.innerHTML = '<p class="errado">Poucos ingredientes no Blend!</p>'
+    } else {
+      divMensagem.innerHTML = '';
+      divMensagem.innerHTML = '<h3><b>PREPARANDO NO HAMBURGUER</b></h3>';
+      for (var i = 0; i < listaIngrediente.length; i++) {
+        precoFinal = (listaPreco[i] * listaPeso[i]) / 1000;
+        precoTotal += precoFinal;
+        pesoTotal += listaPeso[i];
+
+
+        divMensagem.innerHTML += `${i + 1} – Ingrediente: <b>${listaIngrediente[i]}</b> – Peso: <b>${listaPeso[i]}</b> - Preço KG: R$<b>${listaPreco[i]}</b> - Preço Final: R$<b>${precoFinal}</b><br>`;
+      }
+      divMensagem.innerHTML += `<h3><b>INFORMAÇÕES DO HAMBURGUER CRIADO:</b></h3>Nome: <b>${nome}</b><br>Peso Total: <b>${pesoTotal}</b>g<br>Preço Total: R$<b>${precoTotal}</b>`;
+
+      nomeCatalogo.push(nome);
+      pesoCatalogo.push(pesoTotal);
+      precoCatalogo.push(precoTotal);
+
+      listaIngrediente = [];
+      listaPeso = [];
+      listaPreco = [];
+    }
+  }
+
+  function montar() {
+    if (nomeCatalogo == 0) {
+      divMensagem.innerHTML = '<p class="errado">Nenhum Blend registrado!</p>';
+    } else {
+      div1.style.display = 'none';
+      div2.style.display = 'unset';
+    }
+  }
+
+  function adicionarLanche() {
+    var tipo = inputTipo.value;
+    var quantidade = inputQuantidade.value;
+    var queijo = selectQueijo.value;
+    var cebola = selectCebola.value;
+    var alface = selectAlface.value;
+    var tomate = selectTomate.value;
+
+    var posicaoTipo = nomeCatalogo.indexOf(tipo);
+    var nomeLanche = nomeCatalogo[posicaoTipo];
+    var precoLanche = precoCatalogo[posicaoTipo];
+    var pesoLanche = pesoCatalogo[posicaoTipo];
+    var precoFinalLanche = precoCatalogo[posicaoTipo] * quantidade;
+    var pesoFinalLanche = pesoCatalogo[posicaoTipo] * quantidade;
+
+    if (posicaoTipo == -1) {
+      divMensagem2.innerHTML = '<p class="errado">Tipo não encontrado!</p>';
+    } else {
+      if (queijo == 'MUSSARELA') {
+        precoFinalLanche += precoMussarela;
+      } else if (queijo == 'PRATO') {
+        precoFinalLanche += precoPrato;
+      } else if (queijo == 'CHEDDAR') {
+        precoFinalLanche += precoCheddar;
+      }
+      if (cebola == 'SIM') {
+        precoFinalLanche += precoCebola;
+      }
+      if (alface == 'SIM') {
+        precoFinalLanche += precoAlface;
+      }
+      if (tomate == 'SIM') {
+        precoFinalLanche += precoTomate;
+      }
+      precoFinalLanche * quantidade
+      divMensagem2.innerHTML = `Tipo Hamburguer: <br>${nomeLanche}</b> (<b>${pesoLanche}g</b> / R$<b>${precoLanche}</b>)<br>Quantidade de Hambúrgueres: <b>${quantidade}</b>x<br>Queijo: <b>${queijo}</b><br>Cebola: <b>${cebola}</b><br>Alface: <b>${alface}</b><br>Tomate: <b>${tomate}</b><br>Preço Final do Lanche: R$<b>${precoFinalLanche}</b>`;
+    }
+  }
+</script>

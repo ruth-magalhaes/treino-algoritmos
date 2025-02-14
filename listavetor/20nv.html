@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    preço: <input type="number" id="input_preco"><br>
+    nome do produto: <input type="text" id="input_produto"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button><br><br><br>
+
+    <select id="select_escolha">
+        <option selected disabled value="#">Selecione</option>
+        <option value="1">Preços acima de</option>
+        <option value="2">Preços abaixo de</option>
+    </select> <br><br>
+
+    Valor: <input type="number" id="input_valor"><br>
+    <button onclick="filtrar()">Filtrar Produtos</button><br><br><br>
+
+
+    <div id="div_mensagem"></div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    var listaPreco = [];
+    var listaProduto = [];
+
+    function cadastrar() {
+        var preco = Number(input_preco.value);
+        var produto = input_produto.value;
+
+        if (preco < 0 && produto.length < 3) {
+            div_mensagem.innerHTML = `informações inválidas!`;
+        } else {
+
+            listaPreco.push(preco);
+            listaProduto.push(produto);
+
+        }
+
+    }
+
+    function atualizar() {
+
+        div_mensagem.innerHTML = `  Você tem ${listaProduto.length} produtos cadastrados em estoque:<br>`;
+
+        var soma = 0;
+        for (var contador = 1; contador < listaProduto.length; contador++) {
+
+            soma += listaPreco[contador];
+
+            div_mensagem.innerHTML += ` ${contador}. ${listaProduto[contador]} - R$${listaPreco[contador]}  `;
+
+        } div_mensagem.innerHTML = `Seu estoque vale R$${soma}`;
+
+    }
+
+
+    function filtrar() {
+        var escolha = select_escolha.value;
+        var valor = Number(input_valor.value);
+
+for(var i = 0; i < listaPreco.length -1; i++ ) {
+
+    if(escolha == "1" && valor < listaPreco[i] ) {
+
+        div_mensagem.innerHTML += `<br>${listaProduto[i]}. - ${listaPreco[i]}`;
+
+    } else if (escolha == "2" && valor > listaPreco[i]) {
+
+        div_mensagem.innerHTML += `<br>${listaProduto[i]}. - ${listaPreco[i]}`;
+
+
+    }
+}
+
+    }
+
+</script>

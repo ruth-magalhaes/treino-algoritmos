@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    limite <input type="number" id="input_limite"><br><br>
+    número para testes de divisibilidade: <input type="number" id="input_divi"><br><br>
+    <button onclick="analisar()">Somar Números</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var limite = Number(input_limite.value);
+        var divisor = Number(input_divi.value);
+        var multi = 0;
+
+        for (var contador = 1; contador <= limite; contador++) {
+
+
+            if (contador % divisor == 0) {
+                div_mensagem.innerHTML += `${contador}<br><br>`;
+                multi += contador;
+            }
+
+        }
+
+        div_mensagem.innerHTML += `Soma dos Múltiplos ${multi}`;
+    }
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Qual a sua renda familiar? <input id="input_renda">
+    <br><br><br><br>
+    Qual o valor da prestação? <input id="input_prestacao">
+
+    <button onclick="calcular()">Valor da Prestação</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    function calcular() {
+var renda = Number(input_renda.value);
+var prestacao = Number(input_prestacao.value);
+var porc = (prestacao / renda) * 100;
+
+
+div_mensagem.innerHTML =`A prestação corresponde a ${porc}% da renda familiar <br>`;
+
+  
+
+
+if (porc > 30) {
+
+   div_mensagem.innerHTML += `<b style="color: red;">Será necessário complementar a renda familiar </b>`;
+
+}
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+

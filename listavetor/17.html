@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>FAMÍLIA OSAG</h2>
+    nome: <input type="text" id="input_nome"><br>
+    quantidade comprada:<input type="number" id="input_qtd"><br>
+    quantidade vendida:<input type="number" id="input_vendida"><br><br>
+    <button onclick="realizar()">Realizar Venda</button>
+</body>
+</html>
+
+<script>
+
+var listaNome = [];
+var listaCompra = [];
+var listaVende = [];
+
+function realizar() {
+var nome = input_nome.value;
+var qtdComprada = Number(input_qtd.value);
+var qtdVendida = Number(input_vendida.value);
+
+listaNome.push(nome);
+listaCompra.push(qtdComprada);
+listaVende.push(qtdVendida);
+
+}
+
+</script>
+
+<!-- O autoposto de abastecimento Anil Osag faz o controle de estoque de produto sendo:
+
+1.      Cada compra (entrada) de produto é identificada com o nome do produto e a quantidade comprada
+
+2.      Cada venda (saída) de produto é identificada com o nome do produto e a quantidade vendida.
+
+3.      Quando um produto comprado não existe nos controles é gerado uma nova “ficha” para controlar o estoque desse produto
+
+4.      Naturalmente, não é possível vender mais do que existe em estoque e nem vender um produto que não temos.
+
+Faça um programa para a família Osag controlar e exibir o saldo em estoque dos produtos do seu auto posto Anil. OBS: não é necessário controlar as movimentações de estoque e sim somente as saídas -->
+

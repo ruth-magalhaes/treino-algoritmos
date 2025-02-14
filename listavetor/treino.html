@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- lista de conjuntos variados; possuem comportamentos padrões; -->
+
+    fruta: <input type="text" id="input_fruta"><br>
+    <div id="div_mensagem"></div>
+
+    <button onclick="vetores()">Adicionar</button>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="analisar()">Analisar</button>
+</body>
+
+</html>
+
+<script>
+    var listafrutas = [];
+    function vetores() {
+        var fruta = input_fruta.value;
+
+        if (listafrutas.indexOf(fruta) < 0) {
+            listafrutas.push(fruta);
+        } else {
+            alert("Não pode cadastrar uma fruta repetida!")
+        } div_mensagem.innerHTML += `${listafrutas} <br>`;
+    }
+
+    function pesquisar() {
+        var fruta = input_fruta.value;
+
+        if (listafrutas.indexOf(fruta) >= 0) {
+            alert`A fruta ${fruta} existe na lista!`;
+        } else {
+            alert`A fruta não ${fruta} existe na lista!`;
+        } div_mensagem.innerHTML += `${listafrutas} <br>`;
+    }
+
+
+    function analisar() {
+        var fruta = input_fruta.value;
+        var tamanholista = listafrutas.length;
+        var contadorfrutas = 0;
+
+        for (var index = 0; index < tamanholista; index++) {
+            var frutaatual = listafrutas[index];
+
+            if (fruta == frutaatual) {
+                contadorfrutas++;
+            } 
+
+        }div_mensagem.innerHTML += `A ${fruta} existe ${contadorfrutas} vezes na lista! <br>`;
+
+    }
+
+</script>

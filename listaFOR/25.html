@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    número <input type="number" id="input_numero"><br><br>
+    <button onclick="analisar()">Somar Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var numero = Number(input_numero.value);
+        var soma = 0;
+
+
+        for (var contador = 0; contador <= numero; contador++) {
+
+            if (numero < 10 || numero > 500) {
+
+                alert("Valor inválido.");
+            } else if (contador % 2 == 0) {
+                div_mensagem.innerHTML += `${contador}<br><br>`;
+                soma += contador;
+            }
+
+        }
+
+        
+        div_mensagem.innerHTML += `Soma dos pares: ${soma}`;
+    }
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Número <input type="text" id="input_num"> <br>
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="somar()">Somar</button>
+    <button onclick="decrementar()">-1</button>
+    <button onclick="acrescentar()">+1</button>
+
+    <div id="div_mensagem"> 1 </div>
+
+</body>
+
+</html>
+
+<script>
+
+    var numero_atual = 1;
+
+    function multiplicar() {
+        var num = Number(input_num.value);
+       // numero_atual = numero_atual * num;
+       numero_atual *= num;
+        div_mensagem.innerHTML = `${numero_atual}`;
+
+    }
+
+    function dividir() {
+        var num = Number(input_num.value);
+       // numero_atual = numero_atual / num;
+       numero_atual /= num;
+        div_mensagem.innerHTML = `${numero_atual}`;
+
+    }
+
+
+    
+    function subtrair() {
+        var num = Number(input_num.value);
+       // = numero_atual = numero_atual - num;
+       numero_atual -= num;
+        div_mensagem.innerHTML = `${numero_atual}`;
+
+    }
+
+
+    
+    function somar() {
+        var num = Number(input_num.value);
+       // numero_atual = numero_atual +  num;
+numero_atual += num;
+        div_mensagem.innerHTML = `${numero_atual}`;
+
+    }
+
+
+    function decrementar() {
+       numero_atual--;// diminui 1 no valor do numero
+       div_mensagem.innerHTML = `${numero_atual}`;
+
+    }
+    function acrescentar() {
+       //numero_atual++; // acrescenta 1 no valor do numero
+       numero_atual += 5;
+        div_mensagem.innerHTML = `${numero_atual}`;
+
+    }
+
+</script>

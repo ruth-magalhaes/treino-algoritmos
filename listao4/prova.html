@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>PROVA</h1><br><br><br><br>
+    Qual a quantidade de energia consumida em kWh? <input type="number" id="input_energiakwh">
+    <br><br><br>
+    Qual a bandeira tarifária da energia?<input id="input_bandeira"
+        itemid="bandeiraamarela; bandeiraverde; bandeiravermelha">
+    <br><br><br>
+    Qual o volume de água consumido em litros? <input type="number" id="input_volumeagua">
+    <br><br><br>
+    Qual a quantidade de vazamentos de água na casa? <input type="number" id="input_vazamento">
+    <br><br><br>
+    Qual o volume de gás consumido em litros? <input type="number" id="input_volumegas">
+    <br><br><br>
+    Qual a quantidade de MB (megabyte) do plano de internet? <input type="number" id="input_qtdmb">
+    <br><br><br>
+    Você possui uma linha telefônica vinculada ao plano de internet? <input id="input_telefone">
+    <br><br><br><br>
+    <button onclick="calcular()">Calcular Despesas Fixas</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        var energiakwh = Number(input_energiakwh.value);
+        var bandeira = (input_bandeira.value);
+        var volumeAgua = Number(input_volumeagua.value);
+        var vazamento = Number(input_vazamento.value);
+        var volumeGas = Number(input_volumegas.value);
+        var mbInternet = Number(input_qtdmb.value);
+        var linhaTel = (input_telefone.value);
+        var contaenergia = 0;
+        var contaAgua = 0;
+        var vazamento = 0;
+        var contaAgua = 0;
+        var internet = 0;
+
+        
+        var tarifa1 = bandeira += 0.75 * energiakwh;
+        var internet = mbInternet * 0.8;
+        var contaGas = volumeGas * 2.5;
+        var vazamento = volumeAgua * 10;
+        var contaAgua = vazamento * volumeAgua;
+        var total = (contaenergia + contaAgua + contaGas + linhaTel);
+        
+
+        if (bandeira = 'verde') { 
+
+            bandeira += bandeira += 0.75 * energiakwh;
+
+        }
+
+        if (bandeira = 'amarela') {
+
+            bandeira += bandeira += 0.9 * energiakwh;
+
+        }
+
+        if (bandeira = 'vermelha') {
+
+            bandeira += bandeira += 1 * energiakwh;
+
+        }
+
+        if (energiakwh <= 50) {
+
+            bandeira -= energiakwh * 0.1;
+        }
+
+        // agua
+        volumeAgua += 3.5 * volumeAgua;
+
+
+        var contaenergia = bandeira -= energiakwh * 0.1;
+
+        if (linhaTel = 'sim') {
+
+            linhaTel += internet * 0.25;
+
+        }
+
+        else {
+
+            linhaTel -= internet * 0.075;
+        }
+
+
+        div_mensagem.innerHTML += ` ${energiakwh} é a quantidade de kWh informada; <br>
+<br> ${bandeira} é a bandeira tarifária("vermelha", "amarela" ou "verde"); 
+<br> ${contaenergia} é o valor calculado para a conta de energia(valor base que varia com a bandeira - desconto de acordo com quantidade de kWh consumida); 
+<br> ${volumeAgua} é o volume de água consumido em litros; 
+<br> ${vazamento} é a quantidade de vazamentos de água na casa; 
+<br> ${contaAgua} é o valor calculado para a conta de água(valor base + acréscimo de vazamentos); 
+<br> ${volumeGas} é o volume de gás consumido em litros; 
+<br> ${contaGas} é o valor calculado para a conta de gás; 
+<br> ${internet} é o valor base do plano de internet; 
+<br> ${linhaTel} o valor calculado para a conta de internet e telefone(plano base + acréscimo caso tenha telefone - desconto caso não tenha); 
+<br> ${total} é o valor total, somando o valor de todas as contas exibidas(conta de energia + conta de água + conta de gás + conta de internet)`;
+
+    }
+
+
+</script>

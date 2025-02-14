@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    login: <input type="text" id="input_login"><br><br>
+    senha: <input type="text" id="input_senha"><br><br>
+    <select id="select_informacao">
+        <option selected disable value="#">SELECIONE A INFORMAÇÃO PESSOAL CORRETA</option>
+        <option value="1">louro josé</option>
+        <option value="2">marley</option>
+        <option value="3">1949</option>
+        <option value="4">1850</option>
+    </select>
+    <button onclick="cadastrar()">Autenticar</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    var tentativasrestantes = 3;
+
+    function cadastrar() {
+        var login = (input_login.value);
+        var senha = (input_senha.value);
+        var info = (select_informacao.value);
+
+
+        if (login == 'Ana' && senha == 'Braga' && (info == '1' || info == '3')) {
+            div_mensagem.innerHTML = `Usuário autenticado`;
+            tentativasrestantes = 3;
+        } else {
+            tentativasrestantes--;
+            div_mensagem.innerHTML = `Falha na autenticação. Você ainda tem ${tentativasrestantes} tentativa(s) restante(s).`;
+
+        }
+        if (tentativasrestantes == 1){}
+        else {
+            div_mensagem.innerHTML = `Usuário BLOQUEADO! Procure seu gerente!`;
+        }
+    }
+</script>

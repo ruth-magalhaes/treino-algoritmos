@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Quantas atividades você recebe por semana? <input type="number" id="input_atividade"> <br><br>
+    <button onclick="calcular()">Calcular Atividades</button>
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+function calcular() {
+var qtdatividade = Number(input_atividade.value);
+var qtdmes = qtdatividade * 4;
+if ( qtdmes > 60 ) {
+
+div_mensagem.innerHTML = `Você tem ${qtdmes} tarefas por mês. Caramba! Você é bastante atarefado.`;
+
+} else {
+
+    div_mensagem.innerHTML = `Você tem ${qtdmes} tarefas por mês. Sua vida está a pampa!`;
+
+}
+
+
+}
+
+</script>
+
+
+<!--
+    EXERCÍCIO QUE O PEDRO PAULO ME DESAFIOU:
+    
+    A aluna Ruth terá que fazer um código que pergunte ao usuário quantas atividades ele recebe por semana e ao clicar no botão "Calcular Atividades" exiba abaixo do botão o número de atividades por mês e se o número de atividades por mês for maior que 60 exiba "Você tem XX tarefas por mês. Caramba! Você é bastante atarefado." Se não, exiba "Você tem XX tarefas por mês. Sua vida está a pampa!"
+    
+Sendo "XX" o número de tarefas no mês. 
+
+OBS: Considere que todos os meses tem 30 dias. Todas as semanas tem 7 dias e que todos os meses tem exatamente 4 semanas.--> 

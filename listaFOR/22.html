@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Limite inferior da amostragem: <input type="number" id="input_inferior"><br><br>
+    Limite superior da amostragem: <input type="number" id="input_superior"><br><br>
+    Número para testar a divisibilidade: <input type="number" id="input_divi"><br><br>
+    <button onclick="analisar()">Contar</button><br> 
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var inferior = Number(input_inferior.value);
+        var superior = Number(input_superior.value);
+        var divi = Number(input_divi.value);
+        var total = 0;
+        var quantidadeTotal = 0;
+        var menor = 0;
+        var ehPrimeiro = true;
+        var maior = 0;
+
+        if (superior > 100 || superior < inferior || inferior < 1) {
+            alert(`Valor inválido. Tente novamente! <br>`);
+        } else if (divi < 3 && divi > 10) {
+            alert(`Valor inválido. Tente novamente! <br>`);
+        } else {
+
+            for (var contador = inferior; contador <= superior; contador++) {
+
+                if (contador % divi == 0) {
+                    if (ehPrimeiro == true) {
+                        menor = contador;
+                        ehPrimeiro = false;
+                    }
+                    quantidadeTotal ++;
+                    total += contador;
+                    maior = contador;
+                    div_mensagem.innerHTML += `${contador},  `;
+                }
+
+                
+            }
+
+            div_mensagem.innerHTML += `<br><br> QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${quantidadeTotal} <br><br>  
+                
+                SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${total}   <br><br> 
+                
+                MÉDIA DOS NÚMEROS EXIBIDOS: ${total / quantidadeTotal}   <br><br> 
+                
+                MAIOR NÚMERO EXIBIDO: ${maior}  <br><br>  
+                
+                MENOR NÚMERO EXIBIDO: ${menor} <br><br>`;
+        }
+
+
+
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 22 (DESAFIO). Crie um programa o qual:   
+
+a) Receba o limite inferior da amostragem. Esse número que ser maior que 1, caso contrário emitir mensagem explicativa e não seguir em frente.    
+
+b) Receba o limite superior da amostragem. Esse número que ser menor que 100 e maior que o limite inferior (item a), caso contrário emitir mensagem explicativa e não seguir em frente   
+
+c) Receba o número para testar a divisibilidade, esse número tem que estar entre 3 e 10, caso contrário, emitir mensagem explicativa e não seguir em frente.   
+
+d) Tenha num botão "Contar" que quando clicado exiba todos os números divisíveis pelo número informado no item c), desde o limite inferior (item a.) até o limite superior (item b.). Exibir esses números um ao lado do outro separados por uma vírgula e um espaço (, ).    
+
+e) Ao final, sem apagar as mensagens anteriores mostre as seguintes mensagens:   
+
+    QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: 99   
+
+    SOMATÓRIO DOS NÚMEROS EXIBIDOS: 999   
+
+    MÉDIA DOS NÚMEROS EXIBIDOS: 99,99   
+
+    MAIOR NÚMERO EXIBIDO: 99   
+
+    MENOR NÚMERO EXIBIDO: 99   -->

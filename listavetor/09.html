@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    nome de cada projeto que já criou na vida: <input type="text" id="input_projeto"><br>
+    <button onclick="analisar()">Registrar Projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+
+    listaProjeto = [];
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var projeto = input_projeto.value;
+        listaProjeto.push(projeto);
+
+        for (var contador = 0; contador < listaProjeto.length; contador++) {
+
+
+            div_mensagem.innerHTML = `Você já fez ${listaProjeto.length} projetos.`;
+            if (contador <= 3) {
+                div_mensagem.innerHTML += ` Júnior<br>`;
+            } else if (contador >= 4 && contador <= 11) {
+                div_mensagem.innerHTML += ` Pleno<br> `;
+            } else if (contador >= 12) {
+                div_mensagem.innerHTML += ` Sênior<br>`;
+            }
+        }
+
+    }
+
+
+    function mostrar() {
+        div_mensagem.innerHTML = "";
+        for (var cont = listaProjeto.length; cont > 0; cont--) {
+            div_mensagem.innerHTML += ` ${listaProjeto[cont - 1]} <br>`;
+
+        }
+    }
+</script>
+
+
+<!-- Pergunte ao usuário o nome de cada projeto que já criou na vida. Ele digita e clica em "Registrar projeto". Na medida em que vai cadastrando, verifique quantos projetos já foram cadastrados e exiba o seguinte texto abaixo:  
+
+// Você já fez X projetos. Por isso você é um profissional Z  
+
+// X é a quantidade de projetos e Z é seu nível de experiência, segundo estas regras:  
+
+// 0 a 4: Júnior  
+
+// 5 a 12: Pleno  
+
+// 13 ou mais: Sênior  
+
+// b)  Tenha um botão “Mostrar Projetos” que quando clicado mostra os projetos cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.  -->

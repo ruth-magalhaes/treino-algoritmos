@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <select id="select_combo"> <br>
+    <option selected disabled value="#">Indique o resultado</option>
+    <option value="Ganhou"> Vitória </option>
+    <option value="Empatou"> Empate </option>
+    <option value="Perdeu"> Derrota </option>
+  </select>
+
+  <button onclick="registrar()">Registrar jogo</button><br>
+
+  Indique qual jogo deseja saber o resultado <input type="text" id="input_resultado" oninput="resultado()">
+  <div id="div_mensagem"></div>
+  <div id="div_mensagem2"></div>
+</body>
+
+</html>
+
+
+<script>
+
+  listaCombo = [];
+  function registrar() {
+    div_mensagem.innerHTML = "";
+    var combo = select_combo.value;
+    var pontos = 0;
+    var vitoria = 0;
+    var empate = 0;
+    var derrota = 0;
+    var porcento = 0;
+    listaCombo.push(combo);
+
+    for (var i = 0; i < listaCombo.length; i++) {
+      var jogoAtual = listaCombo[i];
+
+
+      if (jogoAtual == "Ganhou") {
+        pontos += 3;
+        vitoria++;
+      } else if (jogoAtual == "Empatou") {
+        pontos += 1;
+        empate++;
+      } else if (jogoAtual == "Perdeu") {
+        pontos += 0;
+        derrota++;
+      }
+    }
+    porcento = pontos / (listaCombo.length * 3) * 100;
+
+    div_mensagem.innerHTML = `<br><br><br> O time teve: ${vitoria} vitórias, ${empate} empates, ${derrota} derrotas  <br>
+
+Pontuação total: ${pontos} pontos  <br>
+
+Aproveitamento: ${porcento}% `;
+  }
+
+  function resultado() {
+    div_mensagem.innerHTML = "";
+    div_mensagem2.innerHTML = "";
+    var resultado = input_resultado.value;
+    var passou = listaCombo[resultado - 1];
+
+    if (passou == undefined) {
+      div_mensagem2.innerHTML += `<br><br> Não foi cadastrado um ${resultado}º jogo`;
+    } else {
+      div_mensagem2.innerHTML = `<br><br>No ${resultado}º jogo, o time ${listaCombo[resultado - 1]}`;
+
+    }
+
+
+  }
+</script>
+
+<!-- a) Cadastre a campanha de um time de futebol num campeonato da seguinte forma:  
+
+a.1) Tenha um 'combo' identificado com o texto "Indique o resultado" com os itens:  
+
+  Vitória  
+
+  Empate  
+
+  Derrota  
+
+b) Ao clicar num botão "Registrar jogo", o resultado escolhido em a) é registrado em um local invisível ao usuário e um texto abaixo é exibido (ou atualizado). O texto é como este:  
+
+      O time teve: V vitórias, E empates, D derrotas  
+
+      Pontuação total: X pontos  
+
+      Aproveitamento: Y%  
+
+Em que X é calculado assim: Cada vitória (V) vale 3 pontos. Cada empate (E) vale 1 ponto. Cada derrota (D) vale 0 pontos.  
+
+O Y é o total de pontos conquistados (X) dividido pelo total de pontos possíveis (ou seja, considerando que tivesse vencido todos os jogos) vezes 100.  
+
+c) Deve haver um campo "Indique qual jogo deseja saber o resultado". Na medida em que vai digitando, aparece um texto, abaixo do texto de b) como este:  
+
+  No XXº jogo, o time Ganhou (ou "Perdeu" ou "Empatou")  
+
+ou um texto como este, caso o valor seja de um jogo que não foi cadastrado:  
+
+  Não foi cadastrado um XXº jogo  
+
+Obs: Neste item considere que o usuário ache que 1 indica o 1º jogo. Ou seja, o usuário não imagina que o 1º é o jogo "0" na verdade.   -->

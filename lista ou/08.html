@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome da empresa: <input type="text" id="input_nome"><br>
+    Valor da bolsa da empresa: <input type="number" id="input_bolsa"><br>
+    Valor do VR: <input type="number" id="input_vr">
+    Deslocamento: <input type="number" id="input_deslocamento">
+    <button onclick="calcular()">É PREFERIDA</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+function calcular() {
+var nome = (input_nome.value);
+var bolsa = Number(input_bolsa.value);
+var vr = Number(input_vr.value);
+var tempo = Number(input_deslocamento.value);
+
+if (bolsa >= 1800 || vr >= 20 || tempo <= 30) {
+    div_mensagem.innerHTML = `A empresa ${nome} é uma de suas preferências`;
+} else {
+    div_mensagem.innerHTML = `A empresa ${nome} não é uma de suas preferências`;   
+}
+
+
+
+
+}
+
+
+
+
+
+
+</script>

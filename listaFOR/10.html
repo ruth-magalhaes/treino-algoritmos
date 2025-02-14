@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    intervalo de números: <input type="number" id="input_num"><br>
+    intervalo de números: <input type="number" id="input_numMax"><br>
+    <button onclick="analisar()">S2 Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+    function analisar() {
+var numero = Number(input_num.value);
+var numMax = Number(input_numMax.value);
+div_mensagem.innerHTML = ``;
+
+for(; numero <= numMax; numero++) {
+var resto = numero % 2;
+
+if(resto == 0){
+div_mensagem.innerHTML += `${numero}<br>`;
+}
+}
+    }
+</script>
+
+<!-- 
+) Solicite um intervalo crescente de valores numéricos    
+
+b) Ao clicar num botão "S2 Pares"...   
+
+c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.   -->

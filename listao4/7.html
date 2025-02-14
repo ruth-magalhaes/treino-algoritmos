@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h1>BANCO XPTO</h1>
+
+    Qual o saldo da conta? <input id="input_saldo">
+    <br><br><br><br>
+    Qual o valor do débito? <input id="input_debito">
+
+    <button onclick="calcular()">Analisar Conta</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+
+        var inicio = Number(input_saldo.value);
+        var debito = Number(input_debito.value);
+        var saldo = inicio - debito;
+
+
+        div_mensagem.innerHTML = `O saldo atual da conta corrente é ${saldo}`;
+
+        if (saldo < 0) {
+
+
+            div_mensagem.innerHTML = `<b style= "color: red;">O saldo atual da conta corrente é ${saldo}</b>`;
+        }
+
+
+
+    }
+
+
+
+
+
+
+</script>
+
+

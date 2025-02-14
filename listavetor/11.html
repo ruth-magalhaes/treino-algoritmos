@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    preço do produto: <input type="number" id="input_preco"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="estoque()">Atualizar Estoque</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+
+    var listaPreco = [];
+
+    function cadastrar() {
+        var precoProduto = Number(input_preco.value);
+
+        listaPreco.push(precoProduto);
+
+    }
+
+
+function estoque() {
+    var somatorio = 0
+        div_mensagem.innerHTML = "";
+
+        for (var contador = listaPreco.length - 1; contador >= 0; contador--) {
+            div_mensagem.innerHTML += `Produto ${listaPreco.length - contador}: R$ ${listaPreco[contador]}<br>`;
+            somatorio += listaPreco[contador];
+        } 
+
+        div_mensagem.innerHTML += `<br>Você tem ${listaPreco.length} produtos cadastrados em estoque.<br>`;
+        div_mensagem.innerHTML += `Seu estoque vale R$ ${somatorio}.<br>`;
+        div_mensagem.innerHTML += `Em que ${listaPreco.length} é a quantidade de produtos cadastrados pelo usuário e ${somatorio} é a soma de todos os valores.`;
+    }
+
+
+</script>
+
+<!-- a) Pergunte ao usuário o preço de um produto; 
+
+// b) Ao clicar em "Cadastrar", o preço fica cadastrado num lugar que o usuário não vê; 
+
+// c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços cadastrados (em ordem inversa) e  um texto como este abaixo:  
+
+//    Você tem X produtos cadastrados em estoque  
+
+//    Seu estoque vale R$Y 
+
+// Em que X é a quantidade de produtos cadastrados pelo usuário e Y é a soma de todos os valores.  -->

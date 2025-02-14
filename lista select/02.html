@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    altura: <input type="number" id="input_alt"><br><br>
+    cor do cabelo: 
+    <select id="select_cabelo">   
+        <option selected disabled value="#">Selecione</option>
+        <option value="1"> Preto </option>
+        <option value="2"> Vermelho </option>
+        <option value="3"> Amarelo </option>
+        <option value="4"> Castanho </option>
+
+    </select>
+    <button onclick="calcular()">Deu match?</button>
+<div id="div_mensagem"></div>
+</body>
+</html>
+
+
+
+<script>
+
+function calcular() {
+var altura = Number(input_alt.value);
+var cabelo = (select_cabelo.value);
+
+if ( altura < 1.85 && (cabelo == "3" || cabelo == "4")) {
+div_mensagem.innerHTML = `<img src = "https://i.pinimg.com/564x/d8/3a/06/d83a06f7f774aa8ef7f15754e7166ff5.jpg">`;
+
+} else {
+    div_mensagem.innerHTML = `<img src = "https://static.vecteezy.com/ti/fotos-gratis/t2/18789854-depressao-e-doenca-mental-homem-asiatico-decepciona-triste-depois-de-receber-mas-noticias-menino-estressado-confuso-com-um-problema-infeliz-discutindo-com-a-namorada-chorando-e-se-preocupando-com-o-trabalho-inesperado-economia-baixa-gratis-foto.jpg">`;
+}
+
+
+}
+
+</script>

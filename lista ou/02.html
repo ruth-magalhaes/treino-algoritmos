@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Nota do ENEM: <input type="number" id="input_notaenem"><br><br>
+    Nota do vestibular interno: <input type="number" id="input_vestinterno"><br><br>
+    <button onclick="calcular()">Avaliação</button>
+
+</body>
+
+</html>
+
+
+<script>
+
+    function calcular() {
+        var enem = (input_notaenem.value);
+        var vestInterno = (input_vestinterno.value);
+
+        if (enem >= 800 || vestInterno >= 700) {
+            alert`Parabéns! Aprovado`;
+        } else {
+            alert`Tente semestre que vem!`;
+        }
+
+
+    }
+
+</script>

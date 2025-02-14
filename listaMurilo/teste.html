@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Nome do produto: <input type="text" id="input_nome"><br>
+    Preço de compra:<input type="number" id="input_preco"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="estoque()">Relatório de estoque</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    var listaProduto = [];
+    var listaPreco = [];
+    function cadastrar() {
+        var produto = input_nome.value;
+        var preco = Number(input_preco.value);
+
+        listaProduto.push(produto);
+        listaPreco.push(preco);
+
+
+    }
+    function estoque() {
+        div_mensagem.innerHTML = "";
+
+        var maiorPreco = listaPreco[0];
+        var menorPreco = listaPreco[0];
+        var maiorProduto = listaProduto[0];
+        var menorProduto = listaProduto[0];
+        var soma = 0;
+
+        div_mensagem.innerHTML += ` Total de produtos: ${listaProduto.length} <br> `;
+        for (var contador = 0; contador < listaProduto.length; contador++) {
+
+            var precoAtual = listaPreco[contador];
+            var produtoAtual = listaProduto[contador];
+            soma += listaPreco[contador];
+
+            if (precoAtual < menorPreco) {
+                menorProduto = produtoAtual;
+                menorPreco = precoAtual;
+            }
+            if (precoAtual > maiorPreco) {
+                maiorProduto = produtoAtual;
+                maiorPreco = precoAtual;
+            }
+
+            div_mensagem.innerHTML += ` Produto ${contador +1}: ${listaProduto[contador]}  <br>
+            Preço de compra: R$ ${listaPreco[contador]} Vender por R$ ${listaPreco[contador] * 1.25}  <br> `;
+
+        } var media = soma / listaPreco.length;
+
+        div_mensagem.innerHTML += ` <br> Produto mais caro: ${maiorPreco} <br>
+        Produto mais barato: ${menorPreco}<br>
+        Soma dos preços: ${soma}<br>
+        Média de preço: ${media}`;
+    } 
+</script>
+
+<!-- 16. Refaça a 15ª questão de tal forma que, ao final do relatório, o programa exiba:  
+
+a) O nome do produto mais caro; 
+
+b) O nome do produto mais barato; 
+
+c) A soma dos preços de compra dos produtos; 
+
+d) A média de preço de venda dos produtos. -->

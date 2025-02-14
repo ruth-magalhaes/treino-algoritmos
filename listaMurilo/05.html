@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    média do número de filhos por habitante: <input type="number" id="input_filho"><br>
+    maior salário: <input type="number" id="input_salario"><br>
+    <button onclick="registrar()">registrar</button>
+    <button onclick="calcular()">calcular</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+
+<script>
+
+    listaSalario = [];
+    listaFilho = [];
+    function registrar() {
+        var salario = Number(input_salario.value);
+        var qtdFilho = Number(input_filho.value);
+
+        listaSalario.push(salario);
+        listaFilho.push(qtdFilho);
+    }
+
+    function calcular() {
+var soma = 0;
+var somaFilho = 0;
+var maiorSalario = 0;
+        for(var contador = 0; contador < listaSalario.length; contador++) {
+           
+           
+            somaFilho += listaFilho[contador];
+            
+            var salarioAtual = listaSalario[contador];
+soma += salarioAtual;
+
+            if(salarioAtual > maiorSalario) {
+                maiorSalario = salarioAtual;
+            }
+            
+        }
+        var mediaFilho = somaFilho/listaFilho.length; 
+        
+var media = soma / listaSalario.length;
+div_mensagem.innerHTML += `Media salarial = ${media}<br>
+Media do numero de filhos por habitante = ${mediaFilho} 
+Maior salario = ${maiorSalario}`;
+    }
+</script>
+
+<!-- A prefeitura de uma cidade pretende realizar uma pesquisa entre 20 de seus habitantes, coletando dados sobre o salário e número de filhos. A prefeitura deseja saber:
+
+a) média do salário da população;
+
+b) média do número de filhos por habitante;
+
+c) maior salário;
+
+Você deve criar um programa que peça para cada usuário digitar as informações acima, armazene-as em variáveis e, ao final, calcule e imprima na tela seus respectivos valores.
+
+PARA ESSE EXERCÍCIO UTILIZE O LAÇO FOR
+
+⚠ DICA: Quando estiver programando, não faça a entrada de dados 20 vezes, mas apenas com 2 ou 3 e quando terminar de montar o código altere o número de repetições para 20.
+
+Exemplo de entrada:
+
+Cada cidadão irá digitar seu salário e o número de filhos que tem;
+
+● 1200 2
+
+● 3000 1
+
+● 2500 0
+
+Exemplo de saída:
+
+● Media salarial = 2233.33 R$
+
+Media do numero de filhos por habitante = 1 Maior salario = 3000.00 R -->

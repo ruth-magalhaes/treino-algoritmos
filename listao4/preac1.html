@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Distância Percorrida: <input type="number" id="input_distancia">
+    <br><br><br><br>
+    Duração da viagem: <input type="number" id="input_duracao">
+    <br><br><br><br>
+    Quantidade de passageiros: <input type="number" id="input_passageiro">
+    <br><br><br><br>
+    Horário de inicio: <input type="number" id="input_horario">
+    <br><br><br><br>
+    <button onclick="calcular()">Realizar Viagem</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        var distancia = Number(input_distancia.value);
+        var duracao = Number(input_duracao.value);
+        var qtdPassageiros = Number(input_passageiro.value);
+        var horario = Number(input_horario.value);
+        var tempoEstimado = Number(custoPercuso + 0.1);
+        var tempoEstimadomenor = Number(custoPercuso - 0.1);
+        var custoPercurso = Number(distancia * 0.77);
+
+        var taxaAdc = 0;
+        var taxaDesc = 0;
+        //estimativa de tempo da corrida
+
+        tempo = Number(distancia * 1.8);
+
+        //custo do percurso
+
+        if (tempo >= tempoEstimado) {
+
+            taxaAdc = custoPercurso * 0.07;
+
+        }
+
+        if (tempo < tempoEstimadomenor) {
+
+            taxaDesc = custoPercurso * 0.08;
+        }
+
+        //taxaADC - taxaDES
+
+        var taxatotal = taxaAdc - taxaDesc;
+
+        // Quantidade de passageiros
+
+        if (qtdPassageiros > 1) {
+
+            qtdPassageiros = (qtdPassageiros * 3) - 3;
+
+        }
+
+        var taxaBonus = 0;
+        var taxaAdicional = 0;
+        // horário de início da corrida
+        if (horario <= 6) {
+
+            taxaBonus += custoPercurso - 0.09;
+
+        }
+
+        if (horario > 20) {
+
+            taxaAdicional -= custoPercurso - 0.11;
+
+        }
+
+
+        //valor total da corrida
+
+        var totalCorridda = (custoPercurso + taxaTootal + qtdPassageiros - taxaBonus + taxaAdicional);
+
+        // quantidade e o preço de combustível consumido de acordo com o percurso da viagem (consome 1 litro a cada 12KM percorrido, sendo R$4.00 por litro consumido); 
+
+        var consumoTotal = duracao = percurso/ 12;
+
+        var litro = tempo *4;
+
+
+        div_mensagem.innerHTML = `A viagem foi iniciada às ${horario} horas e tinha estimativa de ${tempo} minutos e durou ${duracao} minutos, percorrendo ${distancia} KM, com ${qtdPassageiros} passageiros, totalizando ${totalCorrida} do preço da corrida. Com essa distância, foram consumidos ${litro} litros de gasolina, totalizando R$ ${consumoTotal} de consumo.`
+    }
+
+
+
+
+
+</script>
+
+

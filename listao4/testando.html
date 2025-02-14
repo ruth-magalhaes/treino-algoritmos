@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fim de ano</title>
+</head>
+<body>
+    <H1>Será que passei?</H1>
+    <p>Chegando o final do ano letivo, Lucas quer saber se passei de ano.
+        <br>
+        Para isso ele precisa calcucar a media de notas de todos os bimestres, 
+        <br>
+        caso tenha atingido a nota ele passsa de ano, caso não ele terá que refazer a serie em que esta.
+        <br>
+        Vamos ver se lucas passou?
+         
+    </p>
+      Inserir bimestre1 = <input type="number" id="input_bimestre1">
+       <br>
+      Inserir bimestre2 = <input type="number" id="input_bimestre2">
+      <br>
+      Inserir bimestre3 = <input type="number" id="input_bimestre3">
+      <br>
+      Inserir bimestre4 = <input type="number" id="input_bimestre4">
+       <br>
+       <br>
+
+      <button onclick="media()">Calcular Média</button>
+      <div id="div_msg"></div>
+
+
+</body>
+</html>
+<script>
+    function media(){
+
+        var bimestre1 = Number(input_bimestre1.value)
+      
+        var bimestre2 = Number(input_bimestre2.value)
+
+        var bimestre3 = Number(input_bimestre3.value)
+         
+        var bimestre4 = Number(input_bimestre4.value)
+        
+        var media = (bimestre1+bimestre2+bimestre3+bimestre4)/4
+      
+        if(media >=5){
+
+            div_msg.innerHTML =  `#partiuanoquevem <br> Média das notas: ${media}`;
+
+
+        }else{
+                
+                div_msg.innerHTML =  `#tentardenovo <br> Média das notas: ${media}`;
+            }
+
+        }   
+      
+</script>

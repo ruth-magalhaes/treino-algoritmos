@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    número: <input type="number" id="input_num"><br>
+    <button onclick="multiplos()">Adoro múltiplos de 5</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+    function multiplos() {
+        var multiplo = Number(input_num.value);
+        div_mensagem.innerHTML = "";
+
+        if (multiplo >= 20 && multiplo <= 100) {
+            for (var contador = 0; contador <= multiplo; contador++) {
+                var resto = contador % 5;
+
+                if (resto == 0) {
+                    div_mensagem.innerHTML += ` ${contador}<br>`;
+                }
+
+
+            }
+        }
+    }
+
+</script>
+
+<!-- 
+Receba do usuário um número (tem que ser entre 20 e 100)   
+
+b) Ao clicar num botão "Adoro múltiplos de 5"...   
+
+c) Exiba, debaixo do botão, todos os múltiplos de 5 entre 0 e o número informado em a), um embaixo do outro. Ex: 5, 10, 15, 20...   -->

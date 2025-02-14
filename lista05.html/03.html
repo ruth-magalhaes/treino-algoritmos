@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    temperatura: <input type="number" id="input_temperatura">
+    <button onclick="calcular()">calcular</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        var temperatura = Number(input_temperatura.value);
+
+        if (temperatura < 14) {
+            div_mensagem.innerHTML = `Congelante`;
+        } else if (temperatura <= 21) {
+            div_mensagem.innerHTML = `Com Frio`;
+        } else if (temperatura <= 24) {
+            div_mensagem.innerHTML = `Confortável`;
+        } else if (temperatura <= 31) {
+            div_mensagem.innerHTML = `Com Calor`;
+        } else {
+            div_mensagem.innerHTML = `Calor escaldante `;
+        } 
+
+
+
+    }
+   
+ 
+
+
+
+
+</script>

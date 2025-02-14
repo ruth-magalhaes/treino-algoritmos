@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    número <input type="number" id="input_numero"><br><br>
+    <button onclick="analisar()">Ver Divisores</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        div_mensagem.innerHTML = "";
+        var numero = Number(input_numero.value);
+
+
+
+        for (var contador = 1; contador <= numero; contador++) {
+
+            if (contador >= 1 || contador < 100) {
+
+                if (numero % contador == 0) {
+
+                    div_mensagem.innerHTML += `<br>${contador}<br><br>`;
+                }
+
+
+                if (numero % contador == 1 && numero % contador == numero) {
+                    div_mensagem.innerHTML += `<br>O número ${contador} é um número primo. <br><br>`;
+                }
+
+
+            }
+        }
+    }
+</script>

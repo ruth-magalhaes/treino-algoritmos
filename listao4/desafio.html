@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    Nome completo <input id="input_nome"><br><br><br>
+    Peso <input id="input_peso"><br><br><br>
+    Altura <input id="input_altura"><br><br><br>
+<button onclick="calcular()">calcular</button>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+
+        var nome = input_nome.value;
+        var peso = Number(input_peso.value);
+        var altura = Number(input_altura.value);
+        var imc = peso / (altura * altura);
+
+        var alturaEmPes = altura / 0.3048;
+        var pesoEmOnca = peso * 35.274;
+        var ImcOncaPe = pesoEmOnca / (alturaEmPes * alturaEmPes);
+
+        alert(`${nome} seu IMC é de: ${imc} . A sua altura em pés é de: ${alturaEmPes} . O seu peso em onça é de ${pesoEmOnca} . O seu imc em onca/pes² é de: ${ImcOncaPe}`);
+
+    }
+
+
+
+</script>
